@@ -22,8 +22,8 @@ export const GALLERY_IMAGES: { src: string; alt: string }[] = [
 ];
 
 export const LINKS = {
-  spotify: "https://open.spotify.com/artist/tanatron",
-  youtube: "https://www.youtube.com/@tanatronband",
+  spotify: "https://open.spotify.com/intl-pt/artist/5CfR70hsays5gPWFBg6qKx",
+  youtube: "https://www.youtube.com/user/TanatronOfficial",
   instagram: "https://instagram.com/tanatronband",
   aboutMe: "https://about.me/tanatron",
 } as const;
