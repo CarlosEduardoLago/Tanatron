@@ -7,6 +7,9 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "image-cdn-fa.spotifycdn.com", pathname: "/**" },
+      { protocol: "https", hostname: "about.me", pathname: "/**" },
+      { protocol: "https", hostname: "d1qb2nb5cznatu.cloudfront.net", pathname: "/**" },
+      { protocol: "https", hostname: "assets.about.me", pathname: "/**" },
     ],
   },
   trailingSlash: true,

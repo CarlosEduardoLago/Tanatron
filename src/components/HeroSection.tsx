@@ -1,17 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { BAND_NAME, TAGLINE, LINKS } from "@/lib/constants";
+import { BAND_NAME, TAGLINE, LINKS, HERO_IMAGE } from "@/lib/constants";
 
 export function HeroSection() {
   return (
     <section className="relative flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center overflow-hidden px-4 py-12 text-center sm:min-h-[80vh] sm:py-16 md:min-h-[90vh] md:py-20">
-      {/* Background: gradient + vignette + grid pattern */}
+      {/* Background: image (if set) + gradient + vignette + grid */}
       <div
         className="absolute inset-0 bg-black"
         aria-hidden
       />
+      {HERO_IMAGE ? (
+        <div className="absolute inset-0" aria-hidden>
+          <Image
+            src={HERO_IMAGE}
+            alt=""
+            fill
+            className="object-cover opacity-50"
+            sizes="100vw"
+            priority
+          />
+        </div>
+      ) : null}
       <div
         className="absolute inset-0 opacity-60"
         style={{
