@@ -8,13 +8,14 @@ A página pode ser visualizada de duas formas:
 
 ### Pelo GitHub (GitHub Pages)
 
-O repositório está configurado para publicar a página no **GitHub Pages**. Para ativar:
+O repositório está configurado para publicar a página no **GitHub Pages**. Para ativar e corrigir 404:
 
 1. No repositório **[CarlosEduardoLago/Tanatron](https://github.com/CarlosEduardoLago/Tanatron)**, vá em **Settings** → **Pages**.
-2. Em **Build and deployment** → **Source**, escolha **GitHub Actions**.
-3. Após o próximo push na branch `main` (ou ao rodar o workflow manualmente em Actions), a página ficará disponível em:
-
-   **https://carloseduardolago.github.io/Tanatron/**
+2. Em **Build and deployment** → **Source**, escolha **GitHub Actions** (não "Deploy from a branch").
+3. Vá na aba **Actions**. Abra o workflow **"Deploy to GitHub Pages"** e clique em **Run workflow** → **Run workflow** (para rodar na branch `main`).
+4. Aguarde o workflow terminar (ícone verde). Se o job **deploy** pedir aprovação, em **Settings** → **Environments** → **github-pages** você pode ajustar as regras de proteção para permitir o deploy.
+5. A página ficará em: **https://carloseduardolago.github.io/Tanatron/**  
+   (pode levar 1–2 minutos após o fim do workflow.)
 
 ### Pela Vercel
 
