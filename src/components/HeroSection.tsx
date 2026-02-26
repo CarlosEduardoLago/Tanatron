@@ -7,7 +7,7 @@ import { BAND_NAME, TAGLINE, LINKS, HERO_IMAGE } from "@/lib/constants";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center overflow-hidden px-4 py-12 text-center sm:min-h-[80vh] sm:py-16 md:min-h-[90vh] md:py-20">
+    <section className="relative flex min-h-[min(100vh-3.5rem,72svh)] flex-col items-center justify-center overflow-hidden px-4 py-8 text-center sm:min-h-[80vh] sm:py-12 md:min-h-[90vh] md:py-20">
       {/* Background: image (if set) + gradient + vignette + grid */}
       <div
         className="absolute inset-0 bg-black"
@@ -51,7 +51,7 @@ export function HeroSection() {
       />
 
       <motion.div
-        className="relative z-10 flex flex-col items-center gap-5 sm:gap-6"
+        className="relative z-10 flex flex-col items-center gap-3 sm:gap-6"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -80,7 +80,7 @@ export function HeroSection() {
           {TAGLINE}
         </motion.p>
         <motion.div
-          className="flex w-full flex-col gap-3 pt-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4"
+          className="flex w-full flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 sm:pt-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
