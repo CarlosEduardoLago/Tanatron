@@ -58,8 +58,8 @@ export const AGENDA: { date: string; location: string; link?: string | null }[] 
 ];
 
 export const VIDEOS = [
-  { id: "dQw4w9WgXcQ", title: "Tanatron — Vídeo em destaque" },
-  { id: "dQw4w9WgXcQ", title: "Tanatron — Clipe" },
+  { id: "ZLtVzVXLekc", title: "Tanatron — Vídeo" },
+  { id: "KD6hW6JtkwI", title: "Tanatron — Vídeo" },
 ] as const;
 
 export const NEWS = [
