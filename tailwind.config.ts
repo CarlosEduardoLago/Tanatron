@@ -12,7 +12,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-oswald)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
-        logo: ["var(--font-bebas)", "var(--font-oswald)", "system-ui", "sans-serif"],
+        logo: ["var(--font-logo-metal)", "var(--font-oswald)", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

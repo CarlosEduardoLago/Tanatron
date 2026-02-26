@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Oswald } from "next/font/google";
+import { Metal_Mania, Oswald } from "next/font/google";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
+const metalMania = Metal_Mania({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-bebas",
+  variable: "--font-logo-metal",
 });
 
 const oswald = Oswald({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <body
-        className={`${bebasNeue.variable} ${oswald.variable} font-sans antialiased`}
+        className={`${metalMania.variable} ${oswald.variable} font-sans antialiased`}
       >
         {children}
       </body>
