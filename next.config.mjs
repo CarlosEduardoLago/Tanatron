@@ -5,6 +5,9 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === "production" ? "/Tanatron/" : "",
   images: {
     unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "image-cdn-fa.spotifycdn.com", pathname: "/**" },
+    ],
   },
   trailingSlash: true,
 };

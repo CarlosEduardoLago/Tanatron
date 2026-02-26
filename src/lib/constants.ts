@@ -26,4 +26,42 @@ export const LINKS = {
   youtube: "https://www.youtube.com/user/TanatronOfficial",
   instagram: "https://instagram.com/tanatronband",
   aboutMe: "https://about.me/tanatron",
+  facebook: "https://facebook.com/tanatronband",
+  twitter: "https://twitter.com/tanatronband",
 } as const;
+
+export const DISCOGRAPHY = [
+  {
+    title: "Tanatron",
+    year: 2017,
+    type: "Álbum",
+    spotifyUri: "spotify:album:7Liq0KtpaVrTHw6XkraYuj",
+    embedUrl: "https://open.spotify.com/embed/album/7Liq0KtpaVrTHw6XkraYuj",
+    coverImage: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e025b3c067a3444fb945291dcd0",
+    tracklist: [
+      "Betrayed by Yourself",
+      "Servorun Sanguinem",
+      "Do the Creation Rise",
+      "We Need the Death",
+      "In Front of Your Eyes",
+      "Killing and Domination",
+      "Slowly Dying",
+      "Toward Terror",
+      "Bloody Is the Hunt",
+    ],
+    lineUp: "Nyelson Weber (Baixo e Vocal), Nynrod Weber (Guitarra), Daniel Azevedo (Guitarra), Weeslem Lima (Bateria)",
+  },
+] as const;
+
+export const AGENDA: { date: string; location: string; link?: string | null }[] = [
+  { date: "Em breve", location: "Novas datas em breve" },
+];
+
+export const VIDEOS = [
+  { id: "dQw4w9WgXcQ", title: "Tanatron — Vídeo em destaque" },
+  { id: "dQw4w9WgXcQ", title: "Tanatron — Clipe" },
+] as const;
+
+export const NEWS = [
+  { title: "Tanatron no Spotify e YouTube", date: "2024", excerpt: "Ouça nosso álbum e assista aos clipes no canal oficial.", href: "#discografia" },
+] as const;

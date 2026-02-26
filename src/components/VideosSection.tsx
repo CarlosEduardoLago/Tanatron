@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { LINKS } from "@/lib/constants";
+import { VIDEOS, LINKS } from "@/lib/constants";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
 
@@ -20,41 +19,63 @@ const item = {
 export function VideosSection() {
   return (
     <motion.section
-      className="mx-auto max-w-3xl px-4 py-16 md:py-24"
+      id="videos"
+      className="bg-black px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={container}
     >
-      <motion.h2
-        className="mb-6 font-logo text-3xl tracking-widest text-white sm:text-4xl"
-        variants={item}
-      >
-        CLIPES
-      </motion.h2>
-      <motion.p
-        className="mb-8 text-zinc-400"
-        variants={item}
-      >
-        Assista aos nossos clipes no YouTube.
-      </motion.p>
-      <motion.div variants={item}>
-        <Button
-          asChild
-          variant="outline"
-          size="lg"
-          className="border-red-500/50 text-red-500 hover:bg-red-500/10 hover:text-red-400"
+      <div className="mx-auto max-w-6xl">
+        <motion.h2
+          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
+          variants={item}
         >
+          VÍDEOS
+        </motion.h2>
+        <motion.div
+          className="mb-8 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
+          variants={item}
+          aria-hidden
+        />
+        <motion.p className="mb-8 text-zinc-400 sm:mb-10 md:mb-12" variants={item}>
+          Assista aos nossos clipes e apresentações no YouTube.
+        </motion.p>
+
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
+          {VIDEOS.map((video, index) => (
+            <motion.div
+              key={`${video.id}-${index}`}
+              className="flex flex-col gap-3"
+              variants={item}
+            >
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50">
+                <iframe
+                  title={video.title}
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  className="absolute inset-0 h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-sm font-medium text-zinc-300 sm:text-base">{video.title}</h3>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 sm:flex-row sm:justify-center" variants={item}>
           <a
             href={LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Ver clipes no YouTube"
+            className="inline-flex items-center justify-center rounded-lg border border-red-500/50 bg-red-500/10 px-5 py-2.5 text-sm font-medium text-red-400 transition hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
           >
-            Ver clipes no YouTube
+            Assistir no YouTube
           </a>
-        </Button>
-      </motion.div>
+          <span className="text-sm text-zinc-500">Para ver mais vídeos, acesse o canal TanatronOfficial.</span>
+        </motion.div>
+      </div>
     </motion.section>
   );
 }
