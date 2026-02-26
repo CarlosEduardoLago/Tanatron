@@ -45,7 +45,7 @@ export function Header() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-logo text-xl tracking-widest text-white hover:text-amber-500/90 sm:text-2xl"
+            className="font-darkfont text-xl tracking-widest text-white hover:text-amber-500/90 sm:text-2xl"
             aria-label={`${BAND_NAME} — início`}
           >
             {BAND_NAME.toUpperCase()}

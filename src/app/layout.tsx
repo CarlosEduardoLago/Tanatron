@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Metal_Mania, Oswald } from "next/font/google";
 import "./globals.css";
+
+const darkfont = localFont({
+  src: "./fonts/DarkfontFromImage-Regular.ttf",
+  variable: "--font-darkfont",
+  display: "swap",
+});
 
 const metalMania = Metal_Mania({
   weight: "400",
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <body
-        className={`${metalMania.variable} ${oswald.variable} font-sans antialiased`}
+        className={`${darkfont.variable} ${metalMania.variable} ${oswald.variable} font-sans antialiased`}
       >
         {children}
       </body>
