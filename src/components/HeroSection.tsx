@@ -14,12 +14,12 @@ export function HeroSection() {
         aria-hidden
       />
       {HERO_IMAGE ? (
-        <div className="absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-black" aria-hidden>
           <Image
             src={HERO_IMAGE}
             alt=""
             fill
-            className="object-cover opacity-50 object-top sm:object-[center_40%] md:object-center"
+            className="object-contain opacity-50"
             sizes="100vw"
             priority
           />
