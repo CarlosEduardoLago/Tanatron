@@ -48,9 +48,14 @@ export function HeroSection() {
         }}
         aria-hidden
       />
+      {/* Leve escurecimento na base para sinergia texto + imagem */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"
+        aria-hidden
+      />
 
       <motion.div
-        className="relative z-10 mt-8 flex flex-col items-center gap-2 sm:mt-12 sm:gap-3 md:mt-16"
+        className="relative z-10 mt-10 flex flex-col items-center gap-2 sm:mt-14 sm:gap-3 md:mt-20"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
