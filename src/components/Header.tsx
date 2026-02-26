@@ -6,7 +6,7 @@ import { BAND_NAME, LINKS } from "@/lib/constants";
 
 const navItems = [
   { label: "HOME", href: "#" },
-  { label: "AGENDA", href: "#agenda" },
+  { label: "NOVIDADES", href: "#novidades" },
   { label: "BIOGRAFIA", href: "#sobre" },
   { label: "DISCOGRAFIA", href: "#discografia" },
   { label: "FOTOS", href: "#galeria" },
