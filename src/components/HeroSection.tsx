@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { BAND_NAME, TAGLINE, LINKS } from "@/lib/constants";
+
+const LOGO_IMAGE = "/logo-tanatron.png";
 
 export function HeroSection() {
   return (
@@ -44,18 +47,23 @@ export function HeroSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-hero-title text-6xl tracking-[0.1em] text-white antialiased sm:text-7xl sm:tracking-[0.2em] md:text-8xl md:tracking-[0.28em] lg:text-9xl lg:tracking-[0.35em] xl:text-[8rem] xl:tracking-[0.4em]"
+          className="relative flex flex-col items-center justify-center"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          style={{
-            textShadow:
-              "0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(139, 92, 246, 0.15)",
-            WebkitFontSmoothing: "antialiased",
-            MozOsxFontSmoothing: "grayscale",
-          }}
         >
-          {BAND_NAME.toUpperCase()}
+          <Image
+            src={LOGO_IMAGE}
+            alt={BAND_NAME}
+            width={640}
+            height={240}
+            className="max-h-[22vw] w-full max-w-[min(92vw,720px)] object-contain object-center sm:max-h-[200px] md:max-h-[240px]"
+            priority
+            sizes="(max-width: 640px) 90vw, 640px"
+            style={{
+              filter: "drop-shadow(0 0 40px rgba(249, 115, 22, 0.4)) drop-shadow(0 0 80px rgba(139, 92, 246, 0.15))",
+            }}
+          />
         </motion.h1>
         <motion.p
           className="text-sm font-medium uppercase tracking-widest text-zinc-400 sm:text-base"
