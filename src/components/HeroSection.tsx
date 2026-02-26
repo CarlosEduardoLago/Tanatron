@@ -44,13 +44,15 @@ export function HeroSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-logo text-6xl tracking-[0.1em] text-white sm:text-7xl sm:tracking-[0.2em] md:text-8xl md:tracking-[0.28em] lg:text-9xl lg:tracking-[0.35em] xl:text-[8rem] xl:tracking-[0.4em]"
+          className="font-hero-title text-6xl tracking-[0.1em] text-white antialiased sm:text-7xl sm:tracking-[0.2em] md:text-8xl md:tracking-[0.28em] lg:text-9xl lg:tracking-[0.35em] xl:text-[8rem] xl:tracking-[0.4em]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{
             textShadow:
               "0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(139, 92, 246, 0.15)",
+            WebkitFontSmoothing: "antialiased",
+            MozOsxFontSmoothing: "grayscale",
           }}
         >
           {BAND_NAME.toUpperCase()}

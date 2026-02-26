@@ -13,6 +13,7 @@ const config: Config = {
         sans: ["var(--font-oswald)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
         logo: ["var(--font-logo-metal)", "var(--font-oswald)", "system-ui", "sans-serif"],
+        "hero-title": ["var(--font-hero-title)", "var(--font-oswald)", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
