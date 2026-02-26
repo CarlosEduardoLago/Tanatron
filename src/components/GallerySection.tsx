@@ -20,7 +20,7 @@ const item = {
 export function GallerySection() {
   return (
     <motion.section
-      className="bg-black px-4 py-16 md:py-24"
+      className="bg-black px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
@@ -28,18 +28,19 @@ export function GallerySection() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
-          className="mb-10 font-logo text-3xl tracking-widest text-white sm:text-4xl md:mb-12"
+          className="mb-6 font-logo text-2xl tracking-widest text-white sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl"
           variants={item}
         >
           GALERIA
         </motion.h2>
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 lg:gap-5">
+        <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
           {GALLERY_IMAGES.map(({ src, alt }, index) => (
             <motion.div
               key={index}
               className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-zinc-800 transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
               variants={item}
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
               <Image

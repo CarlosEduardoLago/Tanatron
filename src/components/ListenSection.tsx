@@ -46,7 +46,7 @@ function YoutubeIcon({ className }: { className?: string }) {
 export function ListenSection() {
   return (
     <motion.section
-      className="bg-zinc-950 px-4 py-16 md:py-24"
+      className="bg-zinc-950 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -54,14 +54,14 @@ export function ListenSection() {
     >
       <div className="mx-auto max-w-5xl">
         <motion.h2
-          className="mb-10 font-logo text-3xl tracking-widest text-white sm:text-4xl md:mb-12"
+          className="mb-6 font-logo text-2xl tracking-widest text-white sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl"
           variants={card}
         >
           ONDE OUVIR
         </motion.h2>
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-8">
           <motion.div
-            className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8"
+            className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8"
             variants={card}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
@@ -78,7 +78,7 @@ export function ListenSection() {
             <Button
               asChild
               size="lg"
-              className="w-full bg-[#1DB954] text-white transition-all hover:scale-[1.02] hover:bg-[#1ed760] sm:w-auto"
+              className="min-h-[48px] w-full bg-[#1DB954] text-white transition-all hover:scale-[1.02] hover:bg-[#1ed760] sm:w-auto"
             >
               <a
                 href={LINKS.spotify}
@@ -92,7 +92,7 @@ export function ListenSection() {
           </motion.div>
 
           <motion.div
-            className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-red-500/40 hover:shadow-lg hover:shadow-red-500/10 md:p-8"
+            className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-red-500/40 hover:shadow-lg hover:shadow-red-500/10 md:p-8"
             variants={card}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
@@ -110,7 +110,7 @@ export function ListenSection() {
               asChild
               variant="outline"
               size="lg"
-              className="w-full border-red-500/50 text-red-500 transition-all hover:scale-[1.02] hover:border-red-500 hover:bg-red-500/10 hover:text-red-400 sm:w-auto"
+              className="min-h-[48px] w-full border-red-500/50 text-red-500 transition-all hover:scale-[1.02] hover:border-red-500 hover:bg-red-500/10 hover:text-red-400 sm:w-auto"
             >
               <a
                 href={LINKS.youtube}

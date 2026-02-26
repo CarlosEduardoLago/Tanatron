@@ -6,7 +6,7 @@ import { BAND_NAME, TAGLINE, LINKS } from "@/lib/constants";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 py-20 text-center">
+    <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-4 py-12 text-center sm:min-h-[80vh] sm:py-16 md:min-h-[90vh] md:py-20">
       {/* Background: gradient + vignette + grid pattern */}
       <div
         className="absolute inset-0 bg-black"
@@ -44,7 +44,7 @@ export function HeroSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-logo text-6xl tracking-[0.35em] text-white sm:text-7xl md:text-8xl lg:text-9xl"
+          className="font-logo text-5xl tracking-[0.12em] text-white sm:text-6xl sm:tracking-[0.25em] md:text-7xl md:tracking-[0.3em] lg:text-8xl lg:tracking-[0.35em] xl:text-9xl"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -56,7 +56,7 @@ export function HeroSection() {
           {BAND_NAME.toUpperCase()}
         </motion.h1>
         <motion.p
-          className="font-medium uppercase tracking-widest text-zinc-400"
+          className="text-sm font-medium uppercase tracking-widest text-zinc-400 sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.35 }}
@@ -64,7 +64,7 @@ export function HeroSection() {
           {TAGLINE}
         </motion.p>
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-4 pt-4"
+          className="flex w-full flex-col gap-3 pt-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
@@ -72,7 +72,7 @@ export function HeroSection() {
           <Button
             asChild
             size="lg"
-            className="bg-primary text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90"
+            className="min-h-[48px] w-full bg-primary text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 sm:w-auto"
           >
             <a
               href={LINKS.spotify}
@@ -87,7 +87,7 @@ export function HeroSection() {
             asChild
             variant="outline"
             size="lg"
-            className="border-amber-500/50 text-amber-500 transition-all hover:scale-105 hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-400"
+            className="min-h-[48px] w-full border-amber-500/50 text-amber-500 transition-all hover:scale-105 hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-400 sm:w-auto"
           >
             <a
               href={LINKS.youtube}

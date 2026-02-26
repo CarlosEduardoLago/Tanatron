@@ -20,23 +20,23 @@ const item = {
 export function AboutSection() {
   return (
     <motion.section
-      className="bg-zinc-950 px-4 py-16 md:py-24"
+      className="bg-zinc-950 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={container}
     >
-      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:gap-16 md:items-center">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
         <div className="flex flex-col">
           <motion.h2
-            className="mb-6 font-logo text-3xl tracking-widest text-white sm:text-4xl"
+            className="mb-4 font-logo text-2xl tracking-widest text-white sm:mb-6 sm:text-3xl md:text-4xl"
             variants={item}
           >
             SOBRE
           </motion.h2>
-          <motion.div className="space-y-4 text-zinc-400" variants={item}>
+          <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={item}>
             {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
-              <p key={i} className="text-lg leading-relaxed">
+              <p key={i}>
                 {paragraph}
               </p>
             ))}

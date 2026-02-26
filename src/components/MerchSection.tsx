@@ -20,7 +20,7 @@ const item = {
 export function MerchSection() {
   return (
     <motion.section
-      className="bg-black px-4 py-16 md:py-24"
+      className="bg-black px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -28,7 +28,7 @@ export function MerchSection() {
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
-          className="mb-6 font-logo text-3xl tracking-widest text-white sm:text-4xl"
+          className="mb-4 font-logo text-2xl tracking-widest text-white sm:mb-6 sm:text-3xl md:text-4xl"
           variants={item}
         >
           MERCH
@@ -44,7 +44,7 @@ export function MerchSection() {
             asChild
             variant="secondary"
             size="lg"
-            className="transition-all hover:scale-105"
+            className="min-h-[48px] w-full transition-all hover:scale-105 sm:w-auto"
           >
           <a
             href={LINKS.aboutMe}
