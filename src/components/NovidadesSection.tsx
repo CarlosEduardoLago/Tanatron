@@ -39,7 +39,7 @@ export function NovidadesSection() {
           aria-hidden
         />
 
-        {NEWS.length === 0 ? (
+        {[...NEWS].length === 0 ? (
           <motion.div
             className="rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-6 py-10 text-center sm:px-8 sm:py-12"
             variants={item}
