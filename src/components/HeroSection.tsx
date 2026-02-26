@@ -44,7 +44,7 @@ export function HeroSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-darkfont text-5xl tracking-[0.08em] text-white sm:text-6xl sm:tracking-[0.12em] md:text-7xl md:tracking-[0.16em] lg:text-8xl lg:tracking-[0.2em] xl:text-[7rem] xl:tracking-[0.22em]"
+          className="font-darkfont max-w-[92vw] text-4xl tracking-[0.08em] text-white sm:text-5xl sm:tracking-[0.1em] md:text-6xl md:tracking-[0.12em] lg:text-7xl lg:tracking-[0.16em] xl:text-[4.5rem] xl:tracking-[0.18em]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
