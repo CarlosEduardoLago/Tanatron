@@ -4,7 +4,7 @@ export const BIO = "Musicista/banda. Nossas redes, vídeos e músicas.";
 
 export const ABOUT_LONG = `A Tanatron nasceu na cena de Death Metal de São Luís do Maranhão, levando peso, atitude e riffs na veia. Com influências que vão do death metal clássico ao extremo contemporâneo, a banda consolidou sua sonoridade em palcos e estúdios, sempre em busca da intensidade que define o gênero.
 
-Nossas redes, vídeos e músicas estão espalhadas por Spotify, YouTube e redes sociais — e aqui você encontra tudo reunido. Death Metal feito no Norte do Brasil.`;
+Nossas redes, vídeos e músicas estão espalhadas por Spotify, YouTube e redes sociais e aqui você encontra tudo reunido. Death Metal feito no Nordeste do Brasil.`;
 
 export const BAND_MEMBERS: { name: string; role: string }[] = [
   { name: "Formação", role: "Conheça a banda nas redes" },
