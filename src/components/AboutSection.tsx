@@ -20,6 +20,7 @@ const item = {
 export function AboutSection() {
   return (
     <motion.section
+      id="sobre"
       className="bg-zinc-950 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"

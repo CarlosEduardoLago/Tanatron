@@ -20,6 +20,7 @@ const item = {
 export function GallerySection() {
   return (
     <motion.section
+      id="galeria"
       className="bg-black px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"

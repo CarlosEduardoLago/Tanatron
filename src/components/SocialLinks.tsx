@@ -19,6 +19,7 @@ const item = {
 export function SocialLinks() {
   return (
     <motion.section
+      id="redes"
       className="bg-zinc-900/50 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"

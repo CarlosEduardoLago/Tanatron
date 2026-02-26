@@ -46,6 +46,7 @@ function YoutubeIcon({ className }: { className?: string }) {
 export function ListenSection() {
   return (
     <motion.section
+      id="onde-ouvir"
       className="bg-zinc-950 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"

@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { GallerySection } from "@/components/GallerySection";
@@ -8,7 +9,8 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-black">
+    <main className="min-h-screen overflow-x-hidden bg-black pt-14 sm:pt-16">
+      <Header />
       <HeroSection />
       <AboutSection />
       <GallerySection />
