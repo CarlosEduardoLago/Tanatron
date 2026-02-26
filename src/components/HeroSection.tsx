@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { BAND_NAME, TAGLINE, LINKS, HERO_IMAGE } from "@/lib/constants";
+import { BAND_NAME, TAGLINE, HERO_IMAGE } from "@/lib/constants";
 
 export function HeroSection() {
   return (
@@ -51,7 +50,7 @@ export function HeroSection() {
       />
 
       <motion.div
-        className="relative z-10 flex flex-col items-center gap-3 sm:gap-6"
+        className="relative z-10 mt-8 flex flex-col items-center gap-2 sm:mt-12 sm:gap-3 md:mt-16"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -79,42 +78,6 @@ export function HeroSection() {
         >
           {TAGLINE}
         </motion.p>
-        <motion.div
-          className="flex w-full flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 sm:pt-4"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          <Button
-            asChild
-            size="lg"
-            className="min-h-[48px] w-full bg-primary text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 sm:w-auto"
-          >
-            <a
-              href={LINKS.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ouvir no Spotify"
-            >
-              Ouvir no Spotify
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="min-h-[48px] w-full border-amber-500/50 text-amber-500 transition-all hover:scale-105 hover:border-amber-500 hover:bg-amber-500/10 hover:text-amber-400 sm:w-auto"
-          >
-            <a
-              href={LINKS.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ver no YouTube"
-            >
-              Ver no YouTube
-            </a>
-          </Button>
-        </motion.div>
       </motion.div>
     </section>
   );
