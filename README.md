@@ -4,12 +4,23 @@ Landing page da banda **Tanatron** (Death Metal, São Luís/MA). Desenvolvida co
 
 ## Ver página ao vivo
 
-O código está no GitHub; para **publicar a página na internet** e poder visualizá-la em um link:
+A página pode ser visualizada de duas formas:
+
+### Pelo GitHub (GitHub Pages)
+
+O repositório está configurado para publicar a página no **GitHub Pages**. Para ativar:
+
+1. No repositório **[CarlosEduardoLago/Tanatron](https://github.com/CarlosEduardoLago/Tanatron)**, vá em **Settings** → **Pages**.
+2. Em **Build and deployment** → **Source**, escolha **GitHub Actions**.
+3. Após o próximo push na branch `main` (ou ao rodar o workflow manualmente em Actions), a página ficará disponível em:
+
+   **https://carloseduardolago.github.io/Tanatron/**
+
+### Pela Vercel
 
 1. Acesse **[vercel.com](https://vercel.com)** e faça login com sua conta GitHub.
 2. Clique em **Add New…** → **Project** e importe o repositório **CarlosEduardoLago/Tanatron**.
-3. Clique em **Deploy** (não é preciso alterar nenhuma configuração).
-4. Em alguns minutos a página ficará disponível em um link como `tanatron.vercel.app` (ou similar). Esse link aparecerá no painel da Vercel e você pode colocá-lo na descrição do repositório no GitHub.
+3. Clique em **Deploy**. Em alguns minutos a página ficará em um link como `tanatron.vercel.app`.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/CarlosEduardoLago/Tanatron)
 
