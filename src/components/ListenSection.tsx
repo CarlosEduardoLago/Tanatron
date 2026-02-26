@@ -55,11 +55,16 @@ export function ListenSection() {
     >
       <div className="mx-auto max-w-5xl">
         <motion.h2
-          className="mb-6 font-logo text-2xl tracking-widest text-white sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl"
+          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={card}
         >
           ONDE OUVIR
         </motion.h2>
+        <motion.div
+          className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
+          variants={card}
+          aria-hidden
+        />
         <div className="grid gap-4 md:grid-cols-2 md:gap-8">
           <motion.div
             className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8"

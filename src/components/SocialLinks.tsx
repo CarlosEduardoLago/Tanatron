@@ -124,11 +124,16 @@ export function SocialLinks() {
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
-          className="mb-6 font-logo text-2xl tracking-widest text-white sm:mb-8 sm:text-3xl md:text-4xl"
+          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
           variants={item}
         >
           REDES
         </motion.h2>
+        <motion.div
+          className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-8"
+          variants={item}
+          aria-hidden
+        />
         <motion.div
           className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
           variants={item}

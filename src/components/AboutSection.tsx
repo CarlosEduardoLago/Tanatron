@@ -30,11 +30,16 @@ export function AboutSection() {
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
         <div className="flex flex-col">
           <motion.h2
-            className="mb-4 font-logo text-2xl tracking-widest text-white sm:mb-6 sm:text-3xl md:text-4xl"
+            className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
             variants={item}
           >
             SOBRE
           </motion.h2>
+          <motion.div
+            className="mb-4 h-0.5 w-16 bg-amber-500/80 sm:mb-6"
+            variants={item}
+            aria-hidden
+          />
           <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={item}>
             {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
               <p key={i}>

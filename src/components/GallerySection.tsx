@@ -29,11 +29,16 @@ export function GallerySection() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
-          className="mb-6 font-logo text-2xl tracking-widest text-white sm:mb-10 sm:text-3xl md:mb-12 md:text-4xl"
+          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={item}
         >
           GALERIA
         </motion.h2>
+        <motion.div
+          className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
+          variants={item}
+          aria-hidden
+        />
         <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
           {GALLERY_IMAGES.map(({ src, alt }, index) => (
             <motion.div
