@@ -6,7 +6,7 @@ import { BAND_NAME, TAGLINE, LINKS } from "@/lib/constants";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-4 py-12 text-center sm:min-h-[80vh] sm:py-16 md:min-h-[90vh] md:py-20">
+    <section className="relative flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center overflow-hidden px-4 py-12 text-center sm:min-h-[80vh] sm:py-16 md:min-h-[90vh] md:py-20">
       {/* Background: gradient + vignette + grid pattern */}
       <div
         className="absolute inset-0 bg-black"
@@ -38,19 +38,19 @@ export function HeroSection() {
       />
 
       <motion.div
-        className="relative z-10 flex flex-col items-center gap-6"
+        className="relative z-10 flex flex-col items-center gap-5 sm:gap-6"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-logo text-5xl tracking-[0.12em] text-white sm:text-6xl sm:tracking-[0.25em] md:text-7xl md:tracking-[0.3em] lg:text-8xl lg:tracking-[0.35em] xl:text-9xl"
+          className="font-logo text-6xl tracking-[0.1em] text-white sm:text-7xl sm:tracking-[0.2em] md:text-8xl md:tracking-[0.28em] lg:text-9xl lg:tracking-[0.35em] xl:text-[8rem] xl:tracking-[0.4em]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{
             textShadow:
-              "0 0 50px rgba(249, 115, 22, 0.35), 0 0 100px rgba(139, 92, 246, 0.2)",
+              "0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(139, 92, 246, 0.15)",
           }}
         >
           {BAND_NAME.toUpperCase()}
