@@ -10,7 +10,7 @@ export const BAND_MEMBERS: { name: string; role: string }[] = [
   { name: "Formação", role: "Conheça a banda nas redes" },
 ];
 
-export const ABOUT_IMAGE = "https://picsum.photos/seed/tanatron-about/800/500";
+export const ABOUT_IMAGE = "/ABOUT_IMAGE.jpg";
 
 /** URL da imagem de capa do Hero (about.me/tanatron ou caminho ex: "/hero-band.jpg") */
 export const HERO_IMAGE = "/hero-band.jpg";

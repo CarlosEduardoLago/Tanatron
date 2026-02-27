@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT_LONG, ABOUT_IMAGE } from "@/lib/constants";
 
+const aboutImageSrc =
+  process.env.NEXT_PUBLIC_BASE_PATH && ABOUT_IMAGE.startsWith("/")
+    ? process.env.NEXT_PUBLIC_BASE_PATH + ABOUT_IMAGE
+    : ABOUT_IMAGE;
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -53,7 +58,7 @@ export function AboutSection() {
           variants={item}
         >
           <Image
-            src={ABOUT_IMAGE}
+            src={aboutImageSrc}
             alt="Tanatron — Death Metal São Luís/MA"
             fill
             className="object-cover transition-transform duration-300 hover:scale-105"
