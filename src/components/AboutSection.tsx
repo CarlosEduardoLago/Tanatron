@@ -26,7 +26,7 @@ export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="bg-zinc-950 px-4 py-12 md:py-24"
+      className="bg-zinc-950 px-4 py-8 sm:py-10 md:py-16 lg:py-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
