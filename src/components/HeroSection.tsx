@@ -15,13 +15,10 @@ export function HeroSection() {
   const variants = reduceMotion ? heroImageVariantsReduced : heroImageVariants;
 
   return (
-    <section className="relative flex min-h-[min(100vh-3rem,62svh)] flex-col items-center justify-center overflow-hidden px-2 py-4 text-center sm:min-h-[76vh] sm:px-4 sm:py-8 md:min-h-[82vh] md:py-12">
-      {/* Background: image + gradient + vignette (sem grade) */}
-      <div
-        className="absolute inset-0 bg-page"
-        aria-hidden
-      />
-      {HERO_IMAGE ? (
+    <section className="relative flex min-h-[60svh] flex-col items-center justify-center overflow-hidden sm:min-h-[75vh] md:min-h-[82vh]">
+      <div className="absolute inset-0 bg-page" aria-hidden />
+
+      {HERO_IMAGE && (
         <motion.div
           className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page"
           aria-hidden
@@ -38,12 +35,13 @@ export function HeroSection() {
             priority
           />
         </motion.div>
-      ) : null}
+      )}
+
       <motion.div
         className="absolute inset-0 opacity-25"
         style={{
           background:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(30, 27, 75, 0.4) 0%, transparent 50%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(249, 115, 22, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 45%)",
+            "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(30,27,75,0.4) 0%, transparent 50%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(249,115,22,0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139,92,246,0.12) 0%, transparent 45%)",
         }}
         initial="hidden"
         animate="visible"
@@ -51,17 +49,15 @@ export function HeroSection() {
         aria-hidden
       />
       <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          boxShadow: "inset 0 0 80px 40px rgba(0,0,0,0.15)",
-        }}
+        className="pointer-events-none absolute inset-0"
+        style={{ boxShadow: "inset 0 0 80px 40px rgba(0,0,0,0.15)" }}
         initial="hidden"
         animate="visible"
         variants={heroOverlayVariants}
         aria-hidden
       />
       <motion.div
-        className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/25 to-transparent"
         initial="hidden"
         animate="visible"
         variants={heroOverlayVariants}

@@ -1,90 +1,87 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { DISCOGRAPHY, LINKS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  sectionContainer,
+  sectionContainerReduced,
+  sectionItem,
+  sectionItemReduced,
+  viewportOnce,
+  hoverScaleSubtle,
+  tapScale,
+} from "@/lib/motion";
 
 export function DiscographySection() {
+  const reduceMotion = useReducedMotion();
+  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
+  const item = reduceMotion ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="discografia"
-      className="bg-page-dark px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
+      className="section-padding bg-page-dark"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
-      <div className="mx-auto max-w-6xl">
-        <motion.h2
-          className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
-          variants={item}
-        >
+      <div className="section-container">
+        <motion.h2 className="section-title" variants={item}>
           DISCOGRAFIA
         </motion.h2>
-        <motion.div
-          className="mb-6 h-0.5 w-12 bg-amber-500/80 sm:mb-8 sm:w-16 md:mb-12 lg:mb-14"
-          variants={item}
-          aria-hidden
-        />
+        <motion.div className="section-line" variants={item} aria-hidden />
 
-        <div className="space-y-10 sm:space-y-14 md:space-y-20">
+        <div className="space-y-12 sm:space-y-16 md:space-y-20">
           {DISCOGRAPHY.map((album) => (
             <motion.article
               key={`${album.title}-${album.year}`}
-              className="grid gap-4 sm:gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
+              className="grid gap-6 md:grid-cols-[280px_1fr] md:gap-8 lg:grid-cols-[320px_1fr] lg:gap-10"
               variants={item}
             >
-              <div className="flex flex-col gap-4 md:items-stretch">
-                <div className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-page-border shadow-xl sm:max-w-[280px] md:max-w-none">
+              {/* Coluna esquerda: capa + info do álbum */}
+              <div className="flex flex-col gap-4">
+                <div className="relative mx-auto aspect-square w-full max-w-[260px] overflow-hidden rounded-lg border border-page-border shadow-xl sm:max-w-[280px] md:mx-0 md:max-w-none">
                   <Image
                     src={album.coverImage}
                     alt={`Capa ${album.title} — ${album.year}`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 280px"
+                    sizes="(max-width: 640px) 260px, (max-width: 768px) 280px, 320px"
                   />
                 </div>
-                <div className="flex flex-col justify-center gap-1 md:justify-start">
-                  <h3 className="text-xl font-semibold text-white sm:text-2xl">{album.title}</h3>
-                  <p className="text-sm text-zinc-500">
-                    {album.type} • {album.year}
+                <div className="text-center md:text-left">
+                  <h3 className="text-xl font-semibold text-white sm:text-2xl">
+                    {album.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-zinc-500">
+                    {album.type} &bull; {album.year}
                   </p>
                   {album.lineUp && (
-                    <p className="mt-2 text-xs text-zinc-500 leading-relaxed md:mt-3 md:text-sm">
+                    <p className="mt-3 text-xs leading-relaxed text-zinc-500 md:text-sm">
                       {album.lineUp}
                     </p>
                   )}
                 </div>
               </div>
 
-              <div className="flex flex-col gap-0 min-w-0">
+              {/* Coluna direita: player Spotify + tracklist no mesmo bloco */}
+              <div className="min-w-0">
                 <div className="overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
-                  <div className="min-h-[280px] w-full sm:min-h-[400px] md:min-h-[420px]">
-                    <iframe
-                      title={`Ouvir ${album.title} no Spotify`}
-                      src={album.embedUrl}
-                      className="h-full min-h-[280px] w-full sm:min-h-[400px] md:min-h-[420px]"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    />
-                  </div>
+                  <iframe
+                    title={`Ouvir ${album.title} no Spotify`}
+                    src={album.embedUrl}
+                    className="h-[300px] w-full sm:h-[380px] md:h-[400px]"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  />
                   {Array.isArray(album.tracklist) && album.tracklist.length > 0 && (
                     <div className="border-t border-page-border px-4 py-3 sm:px-5 sm:py-4">
-                      <h4 className="mb-2 text-sm font-medium uppercase tracking-wider text-zinc-500">Tracklist</h4>
-                      <ol className="list-inside list-decimal space-y-1 text-sm text-zinc-400">
+                      <h4 className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500 sm:text-sm">
+                        Tracklist
+                      </h4>
+                      <ol className="list-inside list-decimal columns-1 space-y-1 text-sm text-zinc-400 sm:columns-2">
                         {album.tracklist.map((track, i) => (
                           <li key={i}>{track}</li>
                         ))}
@@ -97,15 +94,17 @@ export function DiscographySection() {
           ))}
         </div>
 
-        <motion.div className="mt-6 text-center sm:mt-8 md:mt-12" variants={item}>
-          <a
+        <motion.div className="mt-8 text-center sm:mt-10 md:mt-12" variants={item}>
+          <motion.a
             href={LINKS.spotify}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
+            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-6 py-3 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
+            whileHover={reduceMotion ? undefined : hoverScaleSubtle}
+            whileTap={reduceMotion ? undefined : tapScale}
           >
             Ouvir tudo no Spotify
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </motion.section>

@@ -10,14 +10,14 @@ export function Footer() {
 
   return (
     <motion.footer
-      className="border-t border-page-border px-3 py-6 text-center text-sm text-zinc-500 sm:px-4 sm:py-8"
+      className="border-t border-page-border bg-page px-4 py-8 text-center text-sm text-zinc-500 sm:py-10"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
       variants={variants}
     >
       <p>
-        {BAND_NAME} — {new Date().getFullYear()}
+        {BAND_NAME} &mdash; {new Date().getFullYear()}
       </p>
     </motion.footer>
   );
