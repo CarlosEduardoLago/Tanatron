@@ -3,20 +3,14 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { GALLERY_IMAGES } from "@/lib/constants";
-import { viewportTight } from "@/lib/motion";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  cardHover,
+  cardTap,
+  lineReveal,
+  sectionContainer,
+  sectionItem,
+  viewportTight,
+} from "@/lib/motion";
 
 export function GallerySection() {
   const reduceMotion = useReducedMotion();
@@ -28,18 +22,19 @@ export function GallerySection() {
       initial="hidden"
       whileInView="show"
       viewport={viewportTight}
-      variants={container}
+      variants={sectionContainer}
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
           className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
-          variants={item}
+          variants={sectionItem}
         >
           GALERIA
         </motion.h2>
         <motion.div
-          className="mb-4 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-10 lg:mb-12"
-          variants={item}
+          className="mb-4 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-10 lg:mb-12 origin-left"
+          style={{ transformOrigin: "left" }}
+          variants={lineReveal}
           aria-hidden
         />
         <div className="grid grid-cols-2 gap-1.5 sm:gap-3 md:grid-cols-3 md:gap-5">
@@ -47,10 +42,9 @@ export function GallerySection() {
             <motion.div
               key={index}
               className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
-              variants={item}
-              whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-              transition={{ duration: 0.2 }}
+              variants={sectionItem}
+              whileHover={reduceMotion ? undefined : cardHover}
+              whileTap={reduceMotion ? undefined : cardTap}
             >
               <Image
                 src={src}

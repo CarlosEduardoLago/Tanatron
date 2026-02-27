@@ -3,20 +3,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { DISCOGRAPHY, LINKS } from "@/lib/constants";
-import { hoverScaleSubtle, tapScale, viewportOnce } from "@/lib/motion";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  hoverScaleSubtle,
+  lineReveal,
+  sectionContainer,
+  sectionItem,
+  tapScale,
+  viewportOnce,
+} from "@/lib/motion";
 
 export function DiscographySection() {
   return (
@@ -26,18 +20,19 @@ export function DiscographySection() {
       initial="hidden"
       whileInView="show"
       viewport={viewportOnce}
-      variants={container}
+      variants={sectionContainer}
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
           className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
-          variants={item}
+          variants={sectionItem}
         >
           DISCOGRAFIA
         </motion.h2>
         <motion.div
-          className="mb-6 h-0.5 w-12 bg-amber-500/80 sm:mb-8 sm:w-16 md:mb-12 lg:mb-14"
-          variants={item}
+          className="mb-6 h-0.5 w-12 bg-amber-500/80 sm:mb-8 sm:w-16 md:mb-12 lg:mb-14 origin-left"
+          style={{ transformOrigin: "left" }}
+          variants={lineReveal}
           aria-hidden
         />
 
@@ -46,10 +41,14 @@ export function DiscographySection() {
             <motion.article
               key={`${album.title}-${album.year}`}
               className="grid gap-4 sm:gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
-              variants={item}
+              variants={sectionItem}
             >
               <div className="flex flex-col gap-4 md:items-stretch">
-                <div className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-page-border shadow-xl sm:max-w-[280px] md:max-w-none">
+                <motion.div
+                  className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-page-border shadow-xl sm:max-w-[280px] md:max-w-none"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                >
                   <Image
                     src={album.coverImage}
                     alt={`Capa ${album.title} — ${album.year}`}
@@ -57,7 +56,7 @@ export function DiscographySection() {
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 280px"
                   />
-                </div>
+                </motion.div>
                 <div className="flex flex-col justify-center gap-1 md:justify-start">
                   <h3 className="text-xl font-semibold text-white sm:text-2xl">{album.title}</h3>
                   <p className="text-sm text-zinc-500">
@@ -96,7 +95,7 @@ export function DiscographySection() {
           ))}
         </div>
 
-        <motion.div className="mt-6 text-center sm:mt-8 md:mt-12" variants={item}>
+        <motion.div className="mt-6 text-center sm:mt-8 md:mt-12" variants={sectionItem}>
           <motion.a
             href={LINKS.spotify}
             target="_blank"
@@ -104,7 +103,7 @@ export function DiscographySection() {
             className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
             whileHover={hoverScaleSubtle}
             whileTap={tapScale}
-            transition={{ duration: 0.2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
           >
             Ouvir tudo no Spotify
           </motion.a>

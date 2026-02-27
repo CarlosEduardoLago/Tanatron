@@ -2,19 +2,12 @@
 
 import { motion } from "framer-motion";
 import { LINKS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  lineReveal,
+  sectionContainer,
+  sectionItem,
+  viewportOnce,
+} from "@/lib/motion";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -119,37 +112,41 @@ export function SocialLinks() {
       className="bg-page-mid/80 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={container}
+      viewport={viewportOnce}
+      variants={sectionContainer}
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
           className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:text-4xl"
-          variants={item}
+          variants={sectionItem}
         >
           REDES
         </motion.h2>
         <motion.div
-          className="mb-4 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-8"
-          variants={item}
+          className="mb-4 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-8 origin-left"
+          style={{ transformOrigin: "left" }}
+          variants={lineReveal}
           aria-hidden
         />
         <motion.div
           className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 md:gap-6"
-          variants={item}
+          variants={sectionItem}
         >
           {linkConfig.map(({ key, href, label, ariaLabel, icon: Icon, iconColor, hoverBorder }) => (
-            <a
+            <motion.a
               key={key}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`min-h-[44px] flex items-center justify-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-4 py-2.5 text-sm text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page sm:min-h-[48px] sm:gap-3 sm:px-6 sm:py-3 sm:text-base ${hoverBorder}`}
+              className={`min-h-[44px] flex items-center justify-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-4 py-2.5 text-sm text-zinc-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page sm:min-h-[48px] sm:gap-3 sm:px-6 sm:py-3 sm:text-base ${hoverBorder}`}
               aria-label={ariaLabel}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Icon className={`h-6 w-6 shrink-0 ${iconColor}`} />
               <span>{label}</span>
-            </a>
+            </motion.a>
           ))}
         </motion.div>
       </div>

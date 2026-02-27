@@ -3,24 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT_LONG, ABOUT_IMAGE } from "@/lib/constants";
+import {
+  lineReveal,
+  sectionContainer,
+  sectionItem,
+  viewportOnce,
+} from "@/lib/motion";
 
 const aboutImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && ABOUT_IMAGE.startsWith("/")
     ? process.env.NEXT_PUBLIC_BASE_PATH + ABOUT_IMAGE
     : ABOUT_IMAGE;
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-};
 
 export function AboutSection() {
   return (
@@ -29,23 +22,24 @@ export function AboutSection() {
       className="bg-page-dark px-3 py-6 sm:px-4 sm:py-8 md:py-12 lg:py-20"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={container}
+      viewport={viewportOnce}
+      variants={sectionContainer}
     >
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 md:gap-16 md:items-center">
         <div className="flex flex-col">
           <motion.h2
             className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:text-4xl"
-            variants={item}
+            variants={sectionItem}
           >
             SOBRE
           </motion.h2>
           <motion.div
-            className="mb-3 h-0.5 w-12 bg-amber-500/80 sm:mb-4 sm:w-16 md:mb-6"
-            variants={item}
+            className="mb-3 h-0.5 w-12 bg-amber-500/80 sm:mb-4 sm:w-16 md:mb-6 origin-left"
+            style={{ transformOrigin: "left" }}
+            variants={lineReveal}
             aria-hidden
           />
-          <motion.div className="space-y-3 text-sm text-zinc-400 sm:space-y-4 sm:text-base md:text-lg md:leading-relaxed" variants={item}>
+          <motion.div className="space-y-3 text-sm text-zinc-400 sm:space-y-4 sm:text-base md:text-lg md:leading-relaxed" variants={sectionItem}>
             {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
               <p key={i}>
                 {paragraph}
@@ -55,7 +49,9 @@ export function AboutSection() {
         </div>
         <motion.div
           className="relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border shadow-2xl sm:aspect-[16/10] md:aspect-[4/3]"
-          variants={item}
+          variants={sectionItem}
+          whileHover={{ scale: 1.02, y: -4 }}
+          transition={{ type: "spring", stiffness: 300, damping: 22 }}
         >
           <Image
             src={aboutImageSrc}
