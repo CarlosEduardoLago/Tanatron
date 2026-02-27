@@ -73,15 +73,15 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-page-border/80 bg-page/95 backdrop-blur-sm">
-        <div className="flex h-12 items-center justify-between gap-3 px-3 sm:h-14 sm:px-4 md:h-16 lg:px-6">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-zinc-800/80 bg-black/90 backdrop-blur-sm">
+        <div className="flex h-14 items-center justify-between gap-4 px-4 sm:h-16 lg:px-6">
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="shrink-0 font-darkfont text-lg tracking-widest text-white transition-transform duration-200 hover:scale-[1.02] hover:text-amber-500/90 active:scale-[0.98] sm:text-xl md:text-2xl"
+            className="shrink-0 font-darkfont text-xl tracking-widest text-white hover:text-amber-500/90 sm:text-2xl"
             aria-label={`${BAND_NAME} — início`}
           >
             {BAND_NAME.toUpperCase()}
@@ -94,7 +94,7 @@ export function Header() {
                 key={href}
                 href={href}
                 onClick={(e) => handleNavClick(e, href)}
-                className="rounded px-1.5 py-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400 transition hover:bg-page-mid hover:text-white xl:px-2.5 xl:text-xs 2xl:px-3 2xl:text-sm"
+                className="rounded px-1.5 py-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400 transition hover:bg-zinc-800/80 hover:text-white xl:px-2.5 xl:text-xs 2xl:px-3 2xl:text-sm"
               >
                 {label}
               </a>
@@ -107,7 +107,7 @@ export function Header() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex h-9 w-9 items-center justify-center rounded-full border border-page-border bg-page-surface/80 transition hover:border-zinc-600 ${color}`}
+                className={`flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700/80 bg-zinc-900/50 transition hover:border-zinc-600 ${color}`}
                 aria-label={label}
               >
                 <Icon className="h-4 w-4" />
@@ -119,7 +119,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-zinc-400 transition hover:bg-page-mid hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-page lg:hidden"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-black lg:hidden"
             aria-label="Abrir menu"
             aria-expanded={menuOpen}
           >
@@ -136,7 +136,7 @@ export function Header() {
           <>
             <motion.div
               role="presentation"
-              className="fixed inset-0 z-[60] bg-page/80 backdrop-blur-sm"
+              className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -147,18 +147,18 @@ export function Header() {
             <motion.nav
               role="dialog"
               aria-label="Menu de navegação"
-              className="fixed left-0 top-0 z-[70] flex h-full w-full max-w-sm flex-col bg-page-dark shadow-2xl"
+              className="fixed left-0 top-0 z-[70] flex h-full w-full max-w-sm flex-col bg-zinc-900 shadow-2xl"
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
-              <div className="flex h-12 items-center justify-between border-b border-page-border px-3 sm:h-14 sm:px-4 md:h-16">
+              <div className="flex h-14 items-center justify-between border-b border-zinc-800 px-4 sm:h-16">
                 <span className="font-logo text-lg tracking-widest text-white sm:text-xl">Menu</span>
                 <button
                   type="button"
                   onClick={closeMenu}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg text-zinc-400 transition hover:bg-page-mid hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-page-dark"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg text-zinc-400 transition hover:bg-zinc-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
                   aria-label="Fechar menu"
                 >
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -172,13 +172,13 @@ export function Header() {
                     <a
                       href={href}
                       onClick={(e) => handleNavClick(e, href)}
-                      className="block rounded-lg px-4 py-3 text-lg font-medium text-zinc-300 transition hover:bg-page-mid hover:text-white"
+                      className="block rounded-lg px-4 py-3 text-lg font-medium text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
                     >
                       {label}
                     </a>
                   </li>
                 ))}
-                <li className="mt-4 border-t border-page-border pt-4">
+                <li className="mt-4 border-t border-zinc-800 pt-4">
                   <span className="mb-2 block px-4 text-sm font-medium uppercase tracking-wider text-zinc-500">Redes</span>
                   <div className="flex flex-wrap gap-2 px-4">
                     {socialLinks.map(({ key, href, label, icon: Icon, color }) => (
@@ -187,7 +187,7 @@ export function Header() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex h-10 w-10 items-center justify-center rounded-full border border-page-border bg-page-surface/80 transition ${color}`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50 transition ${color}`}
                         aria-label={label}
                       >
                         <Icon className="h-5 w-5" />

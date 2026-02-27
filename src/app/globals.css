@@ -6,11 +6,6 @@
   :root {
     --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --page-bg: 28 18% 5%;
-    --section-dark: 28 14% 7%;
-    --section-mid: 28 12% 9%;
-    --surface: 28 10% 11%;
-    --border-warm: 28 10% 15%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
@@ -19,13 +14,13 @@
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 28 12% 14%;
+    --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
     --accent: 270 91% 65%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 28 10% 15%;
+    --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 25 95% 53%;
     --radius: 0.5rem;
@@ -38,26 +33,9 @@
   }
   html {
     @apply overflow-x-hidden;
-    scroll-behavior: smooth;
   }
   body {
-    @apply text-foreground antialiased overflow-x-hidden;
-    background-color: hsl(var(--page-bg));
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     -webkit-tap-highlight-color: transparent;
-  }
-}
-
-@layer components {
-  .section-padding {
-    @apply px-4 py-10 sm:px-6 sm:py-14 md:py-20 lg:py-24;
-  }
-  .section-container {
-    @apply mx-auto max-w-6xl;
-  }
-  .section-title {
-    @apply mb-2 font-logo text-xl tracking-widest text-white sm:text-2xl md:mb-3 md:text-3xl lg:text-4xl;
-  }
-  .section-line {
-    @apply mb-6 h-0.5 w-12 bg-amber-500/80 sm:mb-8 sm:w-16 md:mb-10;
   }
 }

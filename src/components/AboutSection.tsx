@@ -1,69 +1,74 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT_LONG, ABOUT_IMAGE } from "@/lib/constants";
-import {
-  sectionContainer,
-  sectionContainerReduced,
-  sectionItem,
-  sectionItemReduced,
-  viewportOnce,
-} from "@/lib/motion";
 
 const aboutImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && ABOUT_IMAGE.startsWith("/")
     ? process.env.NEXT_PUBLIC_BASE_PATH + ABOUT_IMAGE
     : ABOUT_IMAGE;
 
-export function AboutSection() {
-  const reduceMotion = useReducedMotion();
-  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
-  const item = reduceMotion ? sectionItemReduced : sectionItem;
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
 
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+};
+
+export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="section-padding bg-page"
+      className="bg-zinc-950 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={viewportOnce}
+      viewport={{ once: true, margin: "-80px" }}
       variants={container}
     >
-      <div className="section-container">
-        <div className="grid gap-8 md:grid-cols-2 md:items-center md:gap-12 lg:gap-16">
-          <div className="flex flex-col">
-            <motion.h2 className="section-title" variants={item}>
-              SOBRE
-            </motion.h2>
-            <motion.div className="section-line" variants={item} aria-hidden />
-            <motion.div
-              className="space-y-4 text-sm leading-relaxed text-zinc-400 sm:text-base md:text-lg"
-              variants={item}
-            >
-              {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border shadow-2xl"
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
+        <div className="flex flex-col">
+          <motion.h2
+            className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
             variants={item}
           >
-            <Image
-              src={aboutImageSrc}
-              alt="Tanatron — Death Metal São Luís/MA"
-              fill
-              className="object-cover transition-transform duration-300 hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div
-              className="pointer-events-none absolute inset-0 rounded-lg ring-2 ring-inset ring-amber-500/20"
-              aria-hidden
-            />
+            SOBRE
+          </motion.h2>
+          <motion.div
+            className="mb-4 h-0.5 w-16 bg-amber-500/80 sm:mb-6"
+            variants={item}
+            aria-hidden
+          />
+          <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={item}>
+            {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
+              <p key={i}>
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
         </div>
+        <motion.div
+          className="relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-800 shadow-2xl md:aspect-[4/3]"
+          variants={item}
+        >
+          <Image
+            src={aboutImageSrc}
+            alt="Tanatron — Death Metal São Luís/MA"
+            fill
+            className="object-cover transition-transform duration-300 hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div
+            className="absolute inset-0 rounded-lg ring-2 ring-inset ring-amber-500/20 pointer-events-none"
+            aria-hidden
+          />
+        </motion.div>
       </div>
     </motion.section>
   );

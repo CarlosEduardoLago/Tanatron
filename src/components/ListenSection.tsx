@@ -47,7 +47,7 @@ export function ListenSection() {
   return (
     <motion.section
       id="onde-ouvir"
-      className="bg-page-dark px-4 py-12 md:py-24"
+      className="bg-zinc-950 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -67,7 +67,7 @@ export function ListenSection() {
         />
         <div className="grid gap-4 md:grid-cols-2 md:gap-8">
           <motion.div
-            className="group relative overflow-hidden rounded-xl border border-page-border bg-page-surface/80 p-5 transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8"
+            className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8"
             variants={card}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
@@ -98,7 +98,7 @@ export function ListenSection() {
           </motion.div>
 
           <motion.div
-            className="group relative overflow-hidden rounded-xl border border-page-border bg-page-surface/80 p-5 transition-all hover:border-red-500/40 hover:shadow-lg hover:shadow-red-500/10 md:p-8"
+            className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-red-500/40 hover:shadow-lg hover:shadow-red-500/10 md:p-8"
             variants={card}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
