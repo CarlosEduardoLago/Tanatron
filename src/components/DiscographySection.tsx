@@ -77,7 +77,7 @@ export function DiscographySection() {
                     loading="lazy"
                   />
                   {Array.isArray(album.tracklist) && album.tracklist.length > 0 && (
-                    <div className="border-t border-page-border px-4 py-3 sm:px-5 sm:py-4">
+                    <div className="-mt-4 border-t border-page-border px-4 pt-2 pb-3 sm:-mt-6 sm:pt-3 sm:px-5 sm:pb-4">
                       <h4 className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500 sm:text-sm">
                         Tracklist
                       </h4>
