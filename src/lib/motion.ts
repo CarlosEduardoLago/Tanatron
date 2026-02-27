@@ -6,27 +6,42 @@
 export const viewportOnce = { once: true, margin: "-80px" } as const;
 export const viewportTight = { once: true, margin: "-60px" } as const;
 
-/** Easing suave (ease-out-quad) */
-const easeOut = [0.25, 0.46, 0.45, 0.94] as const;
+/** Easing dinâmico (ease-out-expo) — mais fluido */
+const easeOut = [0.22, 0.61, 0.36, 1] as const;
 
-/** Transições: duração um pouco menor, curva suave */
-export const tweenFast = { type: "tween" as const, duration: 0.25, ease: easeOut };
-export const tweenSection = { type: "tween" as const, duration: 0.35, ease: easeOut };
-export const tweenNormal = { type: "tween" as const, duration: 0.4, ease: easeOut };
+/** Transições */
+export const tweenFast = { type: "tween" as const, duration: 0.22, ease: easeOut };
+export const tweenSection = { type: "tween" as const, duration: 0.4, ease: easeOut };
+export const tweenNormal = { type: "tween" as const, duration: 0.45, ease: easeOut };
 export const tweenHero = { type: "tween" as const, duration: 0.5, ease: easeOut };
 
-/** Variants para seções (scroll-triggered) — stagger mais legível */
+/** Variants para seções — mais dinâmicos (y maior, easing marcado) */
 export const sectionContainer = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.08 },
   },
 };
 
 export const sectionItem = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 36 },
   show: { opacity: 1, y: 0, transition: tweenSection },
+};
+
+/** Container com stagger mais rápido (galeria, novidades) */
+export const sectionContainerFast = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.06 },
+  },
+};
+
+/** Item com leve x para direção (alternância visual) */
+export const sectionItemFromLeft = {
+  hidden: { opacity: 0, x: -16, y: 24 },
+  show: { opacity: 1, x: 0, y: 0, transition: tweenSection },
 };
 
 /** Versão reduzida (apenas opacidade) para prefers-reduced-motion */
@@ -78,9 +93,9 @@ export const fadeInVariantsReduced = {
   visible: { opacity: 1, transition: { duration: 0.15 } },
 };
 
-/** Microinteração só em CTAs principais (scale leve) */
+/** Microinterações em cards e CTAs */
 export const tapScale = { scale: 0.98 };
-export const hoverScaleSubtle = { scale: 1.01 };
-/** Galeria: scale bem sutil */
-export const galleryHoverScale = 1.01;
-export const galleryTapScale = 0.99;
+export const hoverScaleSubtle = { scale: 1.02 };
+export const hoverLift = { y: -4, transition: { duration: 0.2 } };
+export const cardHover = { scale: 1.02, y: -2 };
+export const cardTap = { scale: 0.98 };

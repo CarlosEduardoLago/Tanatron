@@ -2,19 +2,7 @@
 
 import { motion } from "framer-motion";
 import { VIDEOS, LINKS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
 
 export function VideosSection() {
   return (
@@ -24,21 +12,21 @@ export function VideosSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={container}
+      variants={sectionContainer}
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
-          variants={item}
+          variants={sectionItem}
         >
           VÍDEOS
         </motion.h2>
         <motion.div
           className="mb-8 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
-          variants={item}
+          variants={sectionItem}
           aria-hidden
         />
-        <motion.p className="mb-8 text-zinc-400 sm:mb-10 md:mb-12" variants={item}>
+        <motion.p className="mb-8 text-zinc-400 sm:mb-10 md:mb-12" variants={sectionItem}>
           Assista aos nossos clipes e apresentações no YouTube.
         </motion.p>
 
@@ -47,7 +35,10 @@ export function VideosSection() {
             <motion.div
               key={`${video.id}-${index}`}
               className="flex flex-col gap-3"
-              variants={item}
+              variants={sectionItem}
+              whileHover={cardHover}
+              whileTap={cardTap}
+              transition={{ duration: 0.2 }}
             >
               <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
                 <iframe
@@ -64,15 +55,18 @@ export function VideosSection() {
           ))}
         </div>
 
-        <motion.div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 sm:flex-row sm:justify-center" variants={item}>
-          <a
+        <motion.div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 sm:flex-row sm:justify-center" variants={sectionItem}>
+          <motion.a
             href={LINKS.youtube}
+            whileHover={cardHover}
+            whileTap={cardTap}
+            transition={{ duration: 0.2 }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg border border-red-500/50 bg-red-500/10 px-5 py-2.5 text-sm font-medium text-red-400 transition hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
           >
             Assistir no YouTube
-          </a>
+          </motion.a>
           <span className="text-sm text-zinc-500">Para ver mais vídeos, acesse o canal TanatronOfficial.</span>
         </motion.div>
       </div>

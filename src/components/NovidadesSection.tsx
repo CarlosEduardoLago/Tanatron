@@ -2,19 +2,7 @@
 
 import { motion } from "framer-motion";
 import { NEWS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0 },
-};
+import { sectionContainerFast, sectionItem, cardHover, cardTap } from "@/lib/motion";
 
 export function NovidadesSection() {
   return (
@@ -24,25 +12,25 @@ export function NovidadesSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={container}
+      variants={sectionContainerFast}
     >
       <div className="mx-auto max-w-4xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
-          variants={item}
+          variants={sectionItem}
         >
           NOVIDADES
         </motion.h2>
         <motion.div
           className="mb-8 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
-          variants={item}
+          variants={sectionItem}
           aria-hidden
         />
 
         {[...NEWS].length === 0 ? (
           <motion.div
             className="rounded-xl border border-page-border/80 bg-page-surface/50 px-6 py-10 text-center sm:px-8 sm:py-12"
-            variants={item}
+            variants={sectionItem}
           >
             <p className="text-lg font-medium text-zinc-300 sm:text-xl">Em breve</p>
             <p className="mt-2 text-sm text-zinc-500">Acompanhe nossas redes para novidades.</p>
@@ -50,8 +38,11 @@ export function NovidadesSection() {
         ) : (
           <ul className="space-y-4">
             {NEWS.map((news, index) => (
-              <motion.li key={`${news.title}-${index}`} variants={item}>
-                <a
+              <motion.li key={`${news.title}-${index}`} variants={sectionItem}>
+                <motion.a
+                  whileHover={cardHover}
+                  whileTap={cardTap}
+                  transition={{ duration: 0.2 }}
                   href={news.href}
                   {...(news.href.startsWith("http")
                     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -63,7 +54,7 @@ export function NovidadesSection() {
                   {news.excerpt && (
                     <p className="mt-2 text-sm text-zinc-400">{news.excerpt}</p>
                   )}
-                </a>
+                </motion.a>
               </motion.li>
             ))}
           </ul>

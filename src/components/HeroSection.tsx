@@ -38,9 +38,9 @@ export function HeroSection() {
         <motion.div
           className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page"
           aria-hidden
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
         >
           <motion.div
             className="absolute inset-[1%] rounded-sm pointer-events-none"

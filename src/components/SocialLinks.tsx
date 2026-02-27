@@ -2,19 +2,7 @@
 
 import { motion } from "framer-motion";
 import { LINKS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0 },
-};
+import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -120,36 +108,39 @@ export function SocialLinks() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={container}
+      variants={sectionContainer}
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
-          variants={item}
+          variants={sectionItem}
         >
           REDES
         </motion.h2>
         <motion.div
           className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-8"
-          variants={item}
+          variants={sectionItem}
           aria-hidden
         />
         <motion.div
           className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
-          variants={item}
+          variants={sectionItem}
         >
           {linkConfig.map(({ key, href, label, ariaLabel, icon: Icon, iconColor, hoverBorder }) => (
-            <a
+            <motion.a
               key={key}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`min-h-[48px] flex items-center justify-center gap-3 rounded-lg border border-page-border bg-page-surface/80 px-6 py-3 text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${hoverBorder}`}
+              className={`min-h-[48px] flex items-center justify-center gap-3 rounded-lg border border-page-border bg-page-surface/80 px-6 py-3 text-zinc-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${hoverBorder}`}
               aria-label={ariaLabel}
+              whileHover={cardHover}
+              whileTap={cardTap}
+              transition={{ duration: 0.2 }}
             >
               <Icon className={`h-6 w-6 shrink-0 ${iconColor}`} />
               <span>{label}</span>
-            </a>
+            </motion.a>
           ))}
         </motion.div>
       </div>
