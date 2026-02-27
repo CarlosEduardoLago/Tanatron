@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { BAND_NAME, TAGLINE, HERO_IMAGE } from "@/lib/constants";
 
+const heroImageSrc =
+  process.env.NEXT_PUBLIC_BASE_PATH && HERO_IMAGE.startsWith("/")
+    ? process.env.NEXT_PUBLIC_BASE_PATH + HERO_IMAGE
+    : HERO_IMAGE;
+
 export function HeroSection() {
   return (
     <section className="relative flex min-h-[min(100vh-3.5rem,72svh)] flex-col items-center justify-center overflow-hidden px-4 py-8 text-center sm:min-h-[80vh] sm:py-12 md:min-h-[90vh] md:py-20">
@@ -15,7 +20,7 @@ export function HeroSection() {
       {HERO_IMAGE ? (
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-black" aria-hidden>
           <Image
-            src={HERO_IMAGE}
+            src={heroImageSrc}
             alt=""
             fill
             className="object-contain opacity-50"

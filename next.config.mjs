@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NODE_ENV === "production" ? "/Tanatron" : "";
 const nextConfig = {
   output: "export",
-  basePath: process.env.NODE_ENV === "production" ? "/Tanatron" : "",
+  basePath,
   assetPrefix: process.env.NODE_ENV === "production" ? "/Tanatron/" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
