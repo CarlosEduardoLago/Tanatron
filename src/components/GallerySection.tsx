@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { GALLERY_IMAGES } from "@/lib/constants";
+import { viewportTight } from "@/lib/motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -18,13 +19,15 @@ const item = {
 };
 
 export function GallerySection() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.section
       id="galeria"
       className="bg-page px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={viewportTight}
       variants={container}
     >
       <div className="mx-auto max-w-6xl">
@@ -45,8 +48,8 @@ export function GallerySection() {
               key={index}
               className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
               variants={item}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
               <Image

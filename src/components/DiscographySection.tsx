@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { DISCOGRAPHY, LINKS } from "@/lib/constants";
+import { hoverScaleSubtle, tapScale, viewportOnce } from "@/lib/motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,7 +25,7 @@ export function DiscographySection() {
       className="bg-page-dark px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
       <div className="mx-auto max-w-6xl">
@@ -96,14 +97,17 @@ export function DiscographySection() {
         </div>
 
         <motion.div className="mt-6 text-center sm:mt-8 md:mt-12" variants={item}>
-          <a
+          <motion.a
             href={LINKS.spotify}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
+            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
+            whileHover={hoverScaleSubtle}
+            whileTap={tapScale}
+            transition={{ duration: 0.2 }}
           >
             Ouvir tudo no Spotify
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </motion.section>

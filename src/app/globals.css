@@ -39,6 +39,7 @@
   }
   html {
     @apply overflow-x-hidden;
+    scroll-behavior: smooth;
   }
   body {
     @apply text-foreground antialiased overflow-x-hidden;

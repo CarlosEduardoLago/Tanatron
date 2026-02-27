@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { VIDEOS, LINKS } from "@/lib/constants";
+import { hoverScaleSubtle, tapScale, viewportOnce } from "@/lib/motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,7 +24,7 @@ export function VideosSection() {
       className="bg-page px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
       <div className="mx-auto max-w-6xl">
@@ -65,14 +66,17 @@ export function VideosSection() {
         </div>
 
         <motion.div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4" variants={item}>
-          <a
+          <motion.a
             href={LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-lg border border-red-500/50 bg-red-500/10 px-5 py-2.5 text-sm font-medium text-red-400 transition hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
+            className="inline-flex items-center justify-center rounded-lg border border-red-500/50 bg-red-500/10 px-5 py-2.5 text-sm font-medium text-red-400 transition-colors hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"
+            whileHover={hoverScaleSubtle}
+            whileTap={tapScale}
+            transition={{ duration: 0.2 }}
           >
             Assistir no YouTube
-          </a>
+          </motion.a>
           <span className="text-sm text-zinc-500">Para ver mais vídeos, acesse o canal TanatronOfficial.</span>
         </motion.div>
       </div>

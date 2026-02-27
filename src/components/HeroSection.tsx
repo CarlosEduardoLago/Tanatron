@@ -1,7 +1,9 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { HERO_IMAGE, BAND_NAME, TAGLINE } from "@/lib/constants";
+import { heroImageVariants, heroImageVariantsReduced } from "@/lib/motion";
 
 const heroImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && HERO_IMAGE.startsWith("/")
@@ -9,6 +11,9 @@ const heroImageSrc =
     : HERO_IMAGE;
 
 export function HeroSection() {
+  const reduceMotion = useReducedMotion();
+  const variants = reduceMotion ? heroImageVariantsReduced : heroImageVariants;
+
   return (
     <section className="relative flex min-h-[min(100vh-3rem,62svh)] flex-col items-center justify-center overflow-hidden px-2 py-4 text-center sm:min-h-[76vh] sm:px-4 sm:py-8 md:min-h-[82vh] md:py-12">
       {/* Background: image (if set) + gradient + vignette + grid */}
@@ -17,7 +22,13 @@ export function HeroSection() {
         aria-hidden
       />
       {HERO_IMAGE ? (
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page" aria-hidden>
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page"
+          aria-hidden
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+        >
           <Image
             src={heroImageSrc}
             alt={`${BAND_NAME} — ${TAGLINE}`}
@@ -26,7 +37,7 @@ export function HeroSection() {
             sizes="(min-width: 768px) 1280px, 100vw"
             priority
           />
-        </div>
+        </motion.div>
       ) : null}
       <div
         className="absolute inset-0 opacity-25"
