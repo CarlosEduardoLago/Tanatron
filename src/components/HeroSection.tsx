@@ -23,7 +23,7 @@ export function HeroSection() {
             alt=""
             fill
             className="object-contain opacity-90"
-            sizes="100vw"
+            sizes="(min-width: 768px) 1280px, 100vw"
             priority
           />
         </div>
