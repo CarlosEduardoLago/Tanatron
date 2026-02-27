@@ -8,13 +8,13 @@ export function NovidadesSection() {
   return (
     <motion.section
       id="novidades"
-      className="bg-page-mid/80 px-4 py-12 md:py-24"
+      className="overflow-x-hidden bg-page-mid/80 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionContainerFast}
     >
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto min-w-0 max-w-4xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={sectionItem}
@@ -36,7 +36,7 @@ export function NovidadesSection() {
             <p className="mt-2 text-sm text-zinc-500">Acompanhe nossas redes para novidades.</p>
           </motion.div>
         ) : (
-          <ul className="space-y-4">
+          <ul className="min-w-0 space-y-4">
             {NEWS.map((news, index) => (
               <motion.li key={`${news.title}-${index}`} variants={sectionItem}>
                 <motion.a

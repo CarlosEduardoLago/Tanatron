@@ -9,7 +9,7 @@ export function DiscographySection() {
   return (
     <motion.section
       id="discografia"
-      className="bg-page-dark px-4 py-12 md:py-24"
+      className="overflow-x-hidden bg-page-dark px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -32,7 +32,7 @@ export function DiscographySection() {
           {DISCOGRAPHY.map((album, index) => (
             <motion.article
               key={`${album.title}-${album.year}`}
-              className="grid gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
+              className="grid min-w-0 gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
               variants={index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight}
             >
               <div className="flex flex-col gap-4 md:items-stretch">
@@ -64,7 +64,7 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-6 min-w-0">
-                <div className="min-h-[352px] w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
+                <div className="min-h-[352px] w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
                     src={album.embedUrl}

@@ -104,13 +104,13 @@ export function SocialLinks() {
   return (
     <motion.section
       id="redes"
-      className="bg-page-mid/80 px-4 py-12 md:py-24"
+      className="overflow-x-hidden bg-page-mid/80 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionContainer}
     >
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto min-w-0 max-w-3xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
           variants={sectionItem}
@@ -123,7 +123,7 @@ export function SocialLinks() {
           aria-hidden
         />
         <motion.div
-          className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
+          className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
           variants={sectionItem}
         >
           {linkConfig.map(({ key, href, label, ariaLabel, icon: Icon, iconColor, hoverBorder }) => (

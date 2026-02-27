@@ -14,14 +14,14 @@ export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="bg-page-dark px-4 pt-6 pb-12 md:pt-10 md:pb-24"
+      className="overflow-x-hidden bg-page-dark px-4 pt-6 pb-12 md:pt-10 md:pb-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionContainer}
     >
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
-        <div className="flex flex-col">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
+        <div className="flex min-w-0 flex-col">
           <motion.h2
             className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
             variants={sectionItemFromLeft}
@@ -33,7 +33,7 @@ export function AboutSection() {
             variants={sectionItemFromLeft}
             aria-hidden
           />
-          <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={sectionItemFromLeft}>
+          <motion.div className="min-w-0 space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={sectionItemFromLeft}>
             {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
               <p key={i}>
                 {paragraph}
@@ -42,7 +42,7 @@ export function AboutSection() {
           </motion.div>
         </div>
         <motion.div
-          className="relative aspect-[16/10] overflow-hidden rounded-lg border border-page-border shadow-2xl md:aspect-[4/3]"
+          className="relative aspect-[16/10] min-w-0 overflow-hidden rounded-lg border border-page-border shadow-2xl md:aspect-[4/3]"
           variants={sectionItemFromRight}
           whileHover={cardHover}
           whileTap={cardTap}
