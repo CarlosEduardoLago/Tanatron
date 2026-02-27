@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
+import { sectionContainer, sectionItem, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 export function MerchSection() {
   return (
@@ -34,7 +34,7 @@ export function MerchSection() {
           Confira nossos produtos e links oficiais.
         </motion.p>
         <motion.div variants={sectionItem}>
-          <motion.div whileHover={cardHover} whileTap={cardTap} transition={{ duration: 0.2 }}>
+          <motion.div whileHover={cardHover} whileTap={cardTap} transition={springSoft}>
           <Button
             asChild
             variant="secondary"

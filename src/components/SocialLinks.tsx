@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
+import { sectionContainer, sectionItem, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -136,7 +136,7 @@ export function SocialLinks() {
               aria-label={ariaLabel}
               whileHover={cardHover}
               whileTap={cardTap}
-              transition={{ duration: 0.2 }}
+              transition={springSoft}
             >
               <Icon className={`h-6 w-6 shrink-0 ${iconColor}`} />
               <span>{label}</span>

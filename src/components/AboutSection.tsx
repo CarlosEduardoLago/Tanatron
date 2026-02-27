@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT_LONG, ABOUT_IMAGE } from "@/lib/constants";
-import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
+import { sectionContainer, sectionItemFromLeft, sectionItemFromRight, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 const aboutImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && ABOUT_IMAGE.startsWith("/")
@@ -24,16 +24,16 @@ export function AboutSection() {
         <div className="flex flex-col">
           <motion.h2
             className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
-            variants={sectionItem}
+            variants={sectionItemFromLeft}
           >
             SOBRE
           </motion.h2>
           <motion.div
             className="mb-4 h-0.5 w-16 bg-amber-500/80 sm:mb-6"
-            variants={sectionItem}
+            variants={sectionItemFromLeft}
             aria-hidden
           />
-          <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={sectionItem}>
+          <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={sectionItemFromLeft}>
             {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
               <p key={i}>
                 {paragraph}
@@ -43,10 +43,10 @@ export function AboutSection() {
         </div>
         <motion.div
           className="relative aspect-[16/10] overflow-hidden rounded-lg border border-page-border shadow-2xl md:aspect-[4/3]"
-          variants={sectionItem}
+          variants={sectionItemFromRight}
           whileHover={cardHover}
           whileTap={cardTap}
-          transition={{ duration: 0.2 }}
+          transition={springSoft}
         >
           <Image
             src={aboutImageSrc}

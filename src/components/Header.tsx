@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BAND_NAME, LINKS } from "@/lib/constants";
+import { navLinkHover, iconHover } from "@/lib/motion";
 
 const navItems = [
   { label: "HOME", href: "#" },
@@ -75,7 +76,7 @@ export function Header() {
     <>
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-page-border/80 bg-page/95 backdrop-blur-sm">
         <div className="flex h-14 items-center justify-between gap-4 px-4 sm:h-16 lg:px-6">
-          <a
+          <motion.a
             href="#"
             onClick={(e) => {
               e.preventDefault();
@@ -83,35 +84,39 @@ export function Header() {
             }}
             className="shrink-0 font-darkfont text-xl tracking-widest text-white hover:text-amber-500/90 sm:text-2xl"
             aria-label={`${BAND_NAME} — início`}
+            whileHover={navLinkHover}
           >
             {BAND_NAME.toUpperCase()}
-          </a>
+          </motion.a>
 
           {/* Desktop: nav + social */}
           <nav aria-label="Menu principal" className="hidden items-center gap-0.5 lg:flex xl:gap-1">
             {navItems.map(({ label, href }) => (
-              <a
+              <motion.a
                 key={href}
                 href={href}
                 onClick={(e) => handleNavClick(e, href)}
                 className="rounded px-1.5 py-2 text-[11px] font-medium uppercase tracking-wider text-zinc-400 transition hover:bg-page-mid hover:text-white xl:px-2.5 xl:text-xs 2xl:px-3 2xl:text-sm"
+                whileHover={navLinkHover}
               >
                 {label}
-              </a>
+              </motion.a>
             ))}
           </nav>
           <div className="hidden items-center gap-2 lg:flex lg:gap-3">
             {socialLinks.map(({ key, href, label, icon: Icon, color }) => (
-              <a
+              <motion.a
                 key={key}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex h-9 w-9 items-center justify-center rounded-full border border-page-border bg-page-surface/80 transition hover:border-zinc-600 ${color}`}
                 aria-label={label}
+                whileHover={iconHover}
+                whileTap={{ scale: 0.95 }}
               >
                 <Icon className="h-4 w-4" />
-              </a>
+              </motion.a>
             ))}
           </div>
 
@@ -182,16 +187,18 @@ export function Header() {
                   <span className="mb-2 block px-4 text-sm font-medium uppercase tracking-wider text-zinc-500">Redes</span>
                   <div className="flex flex-wrap gap-2 px-4">
                     {socialLinks.map(({ key, href, label, icon: Icon, color }) => (
-                      <a
+                      <motion.a
                         key={key}
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`flex h-10 w-10 items-center justify-center rounded-full border border-page-border bg-page-mid/80 transition ${color}`}
                         aria-label={label}
+                        whileHover={iconHover}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <Icon className="h-5 w-5" />
-                      </a>
+                      </motion.a>
                     ))}
                   </div>
                 </li>

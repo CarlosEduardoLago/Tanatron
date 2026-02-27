@@ -20,27 +20,33 @@ export const sectionContainer = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.08 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
 export const sectionItem = {
-  hidden: { opacity: 0, y: 36 },
+  hidden: { opacity: 0, y: 48 },
   show: { opacity: 1, y: 0, transition: tweenSection },
 };
 
-/** Container com stagger mais rápido (galeria, novidades) */
+/** Container com stagger mais marcado (galeria) */
 export const sectionContainerFast = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.06 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.06 },
   },
 };
 
 /** Item com leve x para direção (alternância visual) */
 export const sectionItemFromLeft = {
-  hidden: { opacity: 0, x: -16, y: 24 },
+  hidden: { opacity: 0, x: -20, y: 32 },
+  show: { opacity: 1, x: 0, y: 0, transition: tweenSection },
+};
+
+/** Item vindo da direita (alternância) */
+export const sectionItemFromRight = {
+  hidden: { opacity: 0, x: 20, y: 32 },
   show: { opacity: 1, x: 0, y: 0, transition: tweenSection },
 };
 
@@ -99,3 +105,11 @@ export const hoverScaleSubtle = { scale: 1.02 };
 export const hoverLift = { y: -4, transition: { duration: 0.2 } };
 export const cardHover = { scale: 1.02, y: -2 };
 export const cardTap = { scale: 0.98 };
+
+/** Spring suave para microinterações mais orgânicas */
+export const springSoft = { type: "spring" as const, stiffness: 400, damping: 25 };
+export const springBouncy = { type: "spring" as const, stiffness: 300, damping: 20 };
+
+/** Hover do header (nav links, ícones) */
+export const navLinkHover = { y: -1, transition: { duration: 0.2 } };
+export const iconHover = { scale: 1.12, transition: springSoft };

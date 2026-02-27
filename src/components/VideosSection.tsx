@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { VIDEOS, LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
+import { sectionContainer, sectionItem, sectionItemFromLeft, sectionItemFromRight, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 export function VideosSection() {
   return (
@@ -35,10 +35,10 @@ export function VideosSection() {
             <motion.div
               key={`${video.id}-${index}`}
               className="flex flex-col gap-3"
-              variants={sectionItem}
+              variants={index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight}
               whileHover={cardHover}
               whileTap={cardTap}
-              transition={{ duration: 0.2 }}
+              transition={springSoft}
             >
               <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
                 <iframe
@@ -60,7 +60,7 @@ export function VideosSection() {
             href={LINKS.youtube}
             whileHover={cardHover}
             whileTap={cardTap}
-            transition={{ duration: 0.2 }}
+            transition={springSoft}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg border border-red-500/50 bg-red-500/10 px-5 py-2.5 text-sm font-medium text-red-400 transition hover:border-red-500 hover:bg-red-500/20 hover:text-red-300"

@@ -23,6 +23,8 @@ export function HeroSection() {
   });
   const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0.88]);
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.98]);
+  const imageY = useTransform(scrollYProgress, [0, 0.5], [0, 30]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.3], [0.25, 0.35]);
 
   return (
     <section
@@ -52,7 +54,7 @@ export function HeroSection() {
           />
           <motion.div
             className="absolute inset-[1%] flex items-center justify-center overflow-hidden rounded-sm"
-            style={{ opacity, scale }}
+            style={{ opacity, scale, y: imageY }}
           >
             <Image
               src={heroImageSrc}
@@ -65,11 +67,12 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
       ) : null}
-      <div
-        className="absolute inset-0 opacity-25"
+      <motion.div
+        className="absolute inset-0"
         style={{
           background:
             "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(30, 27, 75, 0.4) 0%, transparent 50%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(249, 115, 22, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 45%)",
+          opacity: overlayOpacity,
         }}
         aria-hidden
       />

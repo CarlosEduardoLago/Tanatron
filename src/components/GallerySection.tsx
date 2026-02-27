@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { GALLERY_IMAGES } from "@/lib/constants";
-import { sectionContainerFast, sectionItem, cardHover, cardTap } from "@/lib/motion";
+import { sectionContainerFast, sectionItem, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 export function GallerySection() {
   return (
@@ -35,7 +35,7 @@ export function GallerySection() {
               variants={sectionItem}
               whileHover={cardHover}
               whileTap={cardTap}
-              transition={{ duration: 0.2 }}
+              transition={springSoft}
             >
               <Image
                 src={src}

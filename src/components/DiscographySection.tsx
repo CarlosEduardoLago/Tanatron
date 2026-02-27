@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { DISCOGRAPHY, LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, cardHover, cardTap } from "@/lib/motion";
+import { sectionContainer, sectionItem, sectionItemFromLeft, sectionItemFromRight, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 export function DiscographySection() {
   return (
@@ -29,18 +29,18 @@ export function DiscographySection() {
         />
 
         <div className="space-y-16 md:space-y-20">
-          {DISCOGRAPHY.map((album) => (
+          {DISCOGRAPHY.map((album, index) => (
             <motion.article
               key={`${album.title}-${album.year}`}
               className="grid gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
-              variants={sectionItem}
+              variants={index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight}
             >
               <div className="flex flex-col gap-4 md:items-stretch">
                 <motion.div
                   className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-page-border shadow-xl sm:max-w-[280px] md:max-w-none"
                   whileHover={cardHover}
                   whileTap={cardTap}
-                  transition={{ duration: 0.2 }}
+                  transition={springSoft}
                 >
                   <Image
                     src={album.coverImage}
@@ -93,7 +93,7 @@ export function DiscographySection() {
             href={LINKS.spotify}
             whileHover={cardHover}
             whileTap={cardTap}
-            transition={{ duration: 0.2 }}
+            transition={springSoft}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
