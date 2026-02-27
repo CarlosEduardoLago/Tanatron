@@ -39,10 +39,24 @@
   }
   html {
     @apply overflow-x-hidden;
+    overflow-x: clip;
   }
   body {
     @apply text-foreground antialiased overflow-x-hidden;
+    overflow-x: clip;
     background-color: hsl(var(--page-bg));
     -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Esconde a barra de rolagem horizontal */
+@layer utilities {
+  .scrollbar-hide-x {
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide-x::-webkit-scrollbar {
+    display: none;
   }
 }

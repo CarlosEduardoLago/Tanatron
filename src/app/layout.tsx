@@ -33,9 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" className="dark overflow-x-hidden">
       <body
-        className={`${darkfont.variable} ${metalMania.variable} ${oswald.variable} font-sans antialiased`}
+        className={`${darkfont.variable} ${metalMania.variable} ${oswald.variable} font-sans antialiased overflow-x-hidden`}
       >
         {children}
       </body>

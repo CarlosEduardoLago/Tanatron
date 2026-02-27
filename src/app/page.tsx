@@ -27,7 +27,7 @@ const GallerySection = dynamic(() => import("@/components/GallerySection").then(
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-page pt-14 sm:pt-16">
+    <main className="min-h-screen w-full overflow-x-hidden bg-page pt-14 sm:pt-16">
       <Header />
       <HeroSection />
       <AboutSection />
