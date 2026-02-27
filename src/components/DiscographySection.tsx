@@ -81,7 +81,7 @@ export function DiscographySection() {
                   />
                 </div>
                 {Array.isArray(album.tracklist) && album.tracklist.length > 0 && (
-                  <div className="-mt-6 pt-0 md:mt-0 md:pt-3">
+                  <div className="-mt-10 pt-0 sm:-mt-12 md:-mt-6 md:pt-2">
                     <h4 className="mb-2 text-sm font-medium uppercase tracking-wider text-zinc-500">Tracklist</h4>
                     <ol className="list-inside list-decimal space-y-1 text-sm text-zinc-400">
                       {album.tracklist.map((track, i) => (
