@@ -71,17 +71,17 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-0 min-w-0">
-                <div className="min-h-[320px] w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[400px] md:min-h-[420px]">
+                <div className="min-h-[280px] w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[400px] md:min-h-[420px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
                     src={album.embedUrl}
-                    className="h-full min-h-[320px] w-full sm:min-h-[400px] md:min-h-[420px]"
+                    className="h-full min-h-[280px] w-full sm:min-h-[400px] md:min-h-[420px]"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                   />
                 </div>
                 {Array.isArray(album.tracklist) && album.tracklist.length > 0 && (
-                  <div className="pt-2 md:pt-3">
+                  <div className="-mt-6 pt-0 md:mt-0 md:pt-3">
                     <h4 className="mb-2 text-sm font-medium uppercase tracking-wider text-zinc-500">Tracklist</h4>
                     <ol className="list-inside list-decimal space-y-1 text-sm text-zinc-400">
                       {album.tracklist.map((track, i) => (
