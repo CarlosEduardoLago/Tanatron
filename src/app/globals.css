@@ -40,10 +40,17 @@
   html {
     @apply overflow-x-hidden;
     overflow-x: clip;
+    max-width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
   }
   body {
     @apply text-foreground antialiased overflow-x-hidden;
     overflow-x: clip;
+    max-width: 100%;
     background-color: hsl(var(--page-bg));
     -webkit-tap-highlight-color: transparent;
   }

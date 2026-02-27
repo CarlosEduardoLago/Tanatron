@@ -64,11 +64,12 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-6 min-w-0">
-                <div className="min-h-[352px] w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
+                <div className="min-h-[352px] w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
                     src={album.embedUrl}
-                    className="h-full min-h-[352px] w-full sm:min-h-[380px]"
+                    className="h-full min-h-[352px] w-full max-w-full sm:min-h-[380px]"
+                    style={{ maxWidth: "100%" }}
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                   />

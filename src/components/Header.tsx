@@ -55,9 +55,11 @@ export function Header() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.body.style.overflowX = "hidden";
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.overflowX = "hidden";
     };
   }, [menuOpen]);
 
