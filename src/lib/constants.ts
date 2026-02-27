@@ -12,8 +12,8 @@ export const BAND_MEMBERS: { name: string; role: string }[] = [
 
 export const ABOUT_IMAGE = "/ABOUT_IMAGE.jpg";
 
-/** URL da imagem de capa do Hero (about.me/tanatron ou caminho ex: "/hero-band.jpg") */
-export const HERO_IMAGE = "/hero-band.jpg";
+/** URL da imagem de capa do Hero (about.me/tanatron ou caminho ex: "/hero-band2.jpg") */
+export const HERO_IMAGE = "/hero-band2.jpg";
 
 export const GALLERY_IMAGES: { src: string; alt: string }[] = [
   { src: "https://picsum.photos/seed/tanatron1/600/400", alt: "Tanatron ao vivo" },
