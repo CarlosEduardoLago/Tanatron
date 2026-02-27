@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Metal_Mania, Oswald } from "next/font/google";
 import "./globals.css";
@@ -27,13 +27,19 @@ export const metadata: Metadata = {
     "Tanatron — Death Metal de São Luís/MA, Brasil. Músicas no Spotify, clipes no YouTube. Nossas redes, vídeos e músicas.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark w-full max-w-full overflow-x-clip">
+    <html lang="pt-BR" className="dark no-scroll-x w-full max-w-full overflow-x-clip">
       <body
         className={`${darkfont.variable} ${metalMania.variable} ${oswald.variable} font-sans antialiased w-full max-w-full min-w-0 overflow-x-clip`}
       >

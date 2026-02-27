@@ -40,12 +40,12 @@ export function VideosSection() {
               whileTap={cardTap}
               transition={springSoft}
             >
-              <div className="relative aspect-video w-full max-w-full min-w-0 overflow-x-clip rounded-lg border border-page-border bg-page-surface/80">
+              <div className="relative aspect-video w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
                 <iframe
                   title={video.title}
                   src={`https://www.youtube.com/embed/${video.id}`}
                   className="absolute inset-0 h-full w-full max-w-full"
-                  style={{ maxWidth: "100%" }}
+                  style={{ maxWidth: "100%", minWidth: 0 }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   loading="lazy"

@@ -38,27 +38,37 @@
     @apply border-border;
   }
   html {
-    overflow-x: clip;
+    overflow-x: hidden;
     max-width: 100%;
     width: 100%;
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  @supports (overflow-x: clip) {
+    html {
+      overflow-x: clip;
+    }
   }
   html::-webkit-scrollbar {
     display: none;
   }
   body {
     @apply text-foreground antialiased;
-    overflow-x: clip;
+    overflow-x: hidden;
     max-width: 100%;
     width: 100%;
     min-width: 0;
     background-color: hsl(var(--page-bg));
     -webkit-tap-highlight-color: transparent;
   }
+  @supports (overflow-x: clip) {
+    body {
+      overflow-x: clip;
+    }
+  }
 }
 
-/* Esconde a barra de rolagem horizontal */
+/* Esconde a barra de rolagem horizontal e força contenção */
 @layer utilities {
   .scrollbar-hide-x {
     overflow-x: hidden;
@@ -67,5 +77,13 @@
   }
   .scrollbar-hide-x::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Força contenção horizontal em toda a página (fallback agressivo) */
+@layer base {
+  html.no-scroll-x,
+  html.no-scroll-x body {
+    overflow-x: hidden !important;
   }
 }

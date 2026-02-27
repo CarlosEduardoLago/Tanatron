@@ -20,7 +20,7 @@ const item = {
 export function MusicSection() {
   return (
     <motion.section
-      className="mx-auto max-w-3xl px-4 py-16 md:py-24"
+      className="mx-auto min-w-0 max-w-3xl overflow-x-clip px-4 py-16 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
