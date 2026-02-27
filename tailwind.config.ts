@@ -28,6 +28,13 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        page: {
+          DEFAULT: "hsl(var(--page-bg))",
+          dark: "hsl(var(--section-dark))",
+          mid: "hsl(var(--section-mid))",
+          surface: "hsl(var(--surface))",
+          border: "hsl(var(--border-warm))",
+        },
       },
     },
   },

@@ -21,7 +21,7 @@ export function MerchSection() {
   return (
     <motion.section
       id="merch"
-      className="bg-black px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
+      className="bg-page px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}

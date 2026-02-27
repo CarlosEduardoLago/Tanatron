@@ -21,7 +21,7 @@ export function GallerySection() {
   return (
     <motion.section
       id="galeria"
-      className="bg-black px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
+      className="bg-page px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
@@ -43,7 +43,7 @@ export function GallerySection() {
           {GALLERY_IMAGES.map(({ src, alt }, index) => (
             <motion.div
               key={index}
-              className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-zinc-800 transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
+              className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
               variants={item}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

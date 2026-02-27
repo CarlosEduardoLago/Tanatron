@@ -6,6 +6,12 @@
   :root {
     --background: 0 0% 0%;
     --foreground: 0 0% 98%;
+    /* Paleta marrom escuro (Primitive Behavior) — base harmonizada */
+    --page-bg: 28 18% 5%;
+    --section-dark: 28 14% 7%;
+    --section-mid: 28 12% 9%;
+    --surface: 28 10% 11%;
+    --border-warm: 28 10% 15%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
@@ -14,13 +20,13 @@
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
+    --muted: 28 12% 14%;
     --muted-foreground: 0 0% 63.9%;
     --accent: 270 91% 65%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
+    --border: 28 10% 15%;
     --input: 0 0% 14.9%;
     --ring: 25 95% 53%;
     --radius: 0.5rem;
@@ -35,7 +41,8 @@
     @apply overflow-x-hidden;
   }
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    @apply text-foreground antialiased overflow-x-hidden;
+    background-color: hsl(var(--page-bg));
     -webkit-tap-highlight-color: transparent;
   }
 }

@@ -21,7 +21,7 @@ export function DiscographySection() {
   return (
     <motion.section
       id="discografia"
-      className="bg-zinc-950 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
+      className="bg-page-dark px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -48,7 +48,7 @@ export function DiscographySection() {
               variants={item}
             >
               <div className="flex flex-col gap-4 md:items-stretch">
-                <div className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-zinc-800 shadow-xl sm:max-w-[280px] md:max-w-none">
+                <div className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-page-border shadow-xl sm:max-w-[280px] md:max-w-none">
                   <Image
                     src={album.coverImage}
                     alt={`Capa ${album.title} — ${album.year}`}
@@ -71,7 +71,7 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-6 min-w-0">
-                <div className="min-h-[280px] w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50 sm:min-h-[352px] md:min-h-[380px]">
+                <div className="min-h-[280px] w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[352px] md:min-h-[380px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
                     src={album.embedUrl}
@@ -100,7 +100,7 @@ export function DiscographySection() {
             href={LINKS.spotify}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900/50 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-zinc-800 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
           >
             Ouvir tudo no Spotify
           </a>

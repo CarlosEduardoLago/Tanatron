@@ -13,11 +13,11 @@ export function HeroSection() {
     <section className="relative flex min-h-[min(100vh-3rem,62svh)] flex-col items-center justify-center overflow-hidden px-2 py-4 text-center sm:min-h-[76vh] sm:px-4 sm:py-8 md:min-h-[82vh] md:py-12">
       {/* Background: image (if set) + gradient + vignette + grid */}
       <div
-        className="absolute inset-0 bg-black"
+        className="absolute inset-0 bg-page"
         aria-hidden
       />
       {HERO_IMAGE ? (
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-black" aria-hidden>
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page" aria-hidden>
           <Image
             src={heroImageSrc}
             alt={`${BAND_NAME} — ${TAGLINE}`}

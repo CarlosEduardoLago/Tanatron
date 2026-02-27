@@ -20,7 +20,7 @@ export function VideosSection() {
   return (
     <motion.section
       id="videos"
-      className="bg-black px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
+      className="bg-page px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -49,7 +49,7 @@ export function VideosSection() {
               className="flex flex-col gap-3"
               variants={item}
             >
-              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50">
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
                 <iframe
                   title={video.title}
                   src={`https://www.youtube.com/embed/${video.id}`}
