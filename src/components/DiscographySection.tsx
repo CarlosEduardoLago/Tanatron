@@ -1,30 +1,30 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { DISCOGRAPHY, LINKS } from "@/lib/constants";
-import {
-  hoverScaleSubtle,
-  sectionContainer,
-  sectionContainerReduced,
-  sectionItem,
-  sectionItemReduced,
-  tapScale,
-  viewportOnce,
-} from "@/lib/motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
 
 export function DiscographySection() {
-  const reduceMotion = useReducedMotion();
-  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
-  const item = reduceMotion ? sectionItemReduced : sectionItem;
-
   return (
     <motion.section
       id="discografia"
       className="bg-page-dark px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={viewportOnce}
+      viewport={{ once: true, margin: "-80px" }}
       variants={container}
     >
       <div className="mx-auto max-w-6xl">
@@ -96,17 +96,14 @@ export function DiscographySection() {
         </div>
 
         <motion.div className="mt-6 text-center sm:mt-8 md:mt-12" variants={item}>
-          <motion.a
+          <a
             href={LINKS.spotify}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
-            whileHover={hoverScaleSubtle}
-            whileTap={tapScale}
-            transition={{ duration: 0.2 }}
+            className="inline-flex items-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-[#1ed760]/50 hover:bg-page-mid hover:text-white"
           >
             Ouvir tudo no Spotify
-          </motion.a>
+          </a>
         </motion.div>
       </div>
     </motion.section>
