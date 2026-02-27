@@ -22,14 +22,14 @@ export function HeroSection() {
             src={heroImageSrc}
             alt=""
             fill
-            className="object-contain opacity-50"
+            className="object-contain opacity-90"
             sizes="100vw"
             priority
           />
         </div>
       ) : null}
       <div
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-25"
         style={{
           background:
             "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(30, 27, 75, 0.4) 0%, transparent 50%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(249, 115, 22, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 45%)",
@@ -48,13 +48,13 @@ export function HeroSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          boxShadow: "inset 0 0 120px 60px rgba(0,0,0,0.5)",
+          boxShadow: "inset 0 0 80px 40px rgba(0,0,0,0.15)",
         }}
         aria-hidden
       />
-      {/* Leve escurecimento na base para sinergia texto + imagem */}
+      {/* Leve escurecimento na base */}
       <div
-        className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"
+        className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"
         aria-hidden
       />
     </section>
