@@ -10,7 +10,7 @@ const heroImageSrc =
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[min(100vh-3.5rem,72svh)] flex-col items-center justify-center overflow-hidden px-4 py-8 text-center sm:min-h-[80vh] sm:py-12 md:min-h-[85vh] md:py-20">
+    <section className="relative flex min-h-[min(100vh-3.5rem,85svh)] flex-col items-center justify-center overflow-hidden px-4 py-4 text-center sm:min-h-[80vh] sm:py-12 md:min-h-[85vh] md:py-20">
       {/* Background: image (if set) + gradient + vignette + grid */}
       <div
         className="absolute inset-0 bg-page"
@@ -22,8 +22,8 @@ export function HeroSection() {
             src={heroImageSrc}
             alt=""
             fill
-            className="object-contain opacity-90"
-            sizes="(min-width: 768px) 1280px, 100vw"
+            className="object-contain object-center opacity-90"
+            sizes="(max-width: 767px) 100vw, (min-width: 768px) 1280px"
             priority
           />
         </div>
