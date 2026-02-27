@@ -20,7 +20,7 @@ export function VideosSection() {
   return (
     <motion.section
       id="videos"
-      className="bg-black px-4 py-12 md:py-24"
+      className="bg-black px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -28,21 +28,21 @@ export function VideosSection() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
-          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
+          className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
           variants={item}
         >
           VÍDEOS
         </motion.h2>
         <motion.div
-          className="mb-8 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
+          className="mb-5 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-10 lg:mb-12"
           variants={item}
           aria-hidden
         />
-        <motion.p className="mb-8 text-zinc-400 sm:mb-10 md:mb-12" variants={item}>
+        <motion.p className="mb-5 text-sm text-zinc-400 sm:mb-6 sm:text-base md:mb-10 lg:mb-12" variants={item}>
           Assista aos nossos clipes e apresentações no YouTube.
         </motion.p>
 
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8">
           {VIDEOS.map((video, index) => (
             <motion.div
               key={`${video.id}-${index}`}
@@ -64,7 +64,7 @@ export function VideosSection() {
           ))}
         </div>
 
-        <motion.div className="mt-8 flex flex-col items-center gap-4 sm:mt-10 sm:flex-row sm:justify-center" variants={item}>
+        <motion.div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4" variants={item}>
           <a
             href={LINKS.youtube}
             target="_blank"

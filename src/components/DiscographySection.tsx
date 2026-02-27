@@ -21,7 +21,7 @@ export function DiscographySection() {
   return (
     <motion.section
       id="discografia"
-      className="bg-zinc-950 px-4 py-12 md:py-24"
+      className="bg-zinc-950 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -29,22 +29,22 @@ export function DiscographySection() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
-          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
+          className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
           variants={item}
         >
           DISCOGRAFIA
         </motion.h2>
         <motion.div
-          className="mb-10 h-0.5 w-16 bg-amber-500/80 sm:mb-12 md:mb-14"
+          className="mb-6 h-0.5 w-12 bg-amber-500/80 sm:mb-8 sm:w-16 md:mb-12 lg:mb-14"
           variants={item}
           aria-hidden
         />
 
-        <div className="space-y-16 md:space-y-20">
+        <div className="space-y-10 sm:space-y-14 md:space-y-20">
           {DISCOGRAPHY.map((album) => (
             <motion.article
               key={`${album.title}-${album.year}`}
-              className="grid gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
+              className="grid gap-4 sm:gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
               variants={item}
             >
               <div className="flex flex-col gap-4 md:items-stretch">
@@ -71,11 +71,11 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-6 min-w-0">
-                <div className="min-h-[352px] w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50 sm:min-h-[380px]">
+                <div className="min-h-[280px] w-full overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50 sm:min-h-[352px] md:min-h-[380px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
                     src={album.embedUrl}
-                    className="h-full min-h-[352px] w-full sm:min-h-[380px]"
+                    className="h-full min-h-[280px] w-full sm:min-h-[352px] md:min-h-[380px]"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                   />
@@ -95,7 +95,7 @@ export function DiscographySection() {
           ))}
         </div>
 
-        <motion.div className="mt-10 text-center md:mt-12" variants={item}>
+        <motion.div className="mt-6 text-center sm:mt-8 md:mt-12" variants={item}>
           <a
             href={LINKS.spotify}
             target="_blank"

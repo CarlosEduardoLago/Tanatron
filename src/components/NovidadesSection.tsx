@@ -20,7 +20,7 @@ export function NovidadesSection() {
   return (
     <motion.section
       id="novidades"
-      className="bg-zinc-900/50 px-4 py-12 md:py-24"
+      className="bg-zinc-900/50 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -28,27 +28,27 @@ export function NovidadesSection() {
     >
       <div className="mx-auto max-w-4xl">
         <motion.h2
-          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
+          className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
           variants={item}
         >
           NOVIDADES
         </motion.h2>
         <motion.div
-          className="mb-8 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
+          className="mb-5 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-10 lg:mb-12"
           variants={item}
           aria-hidden
         />
 
         {[...NEWS].length === 0 ? (
           <motion.div
-            className="rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-6 py-10 text-center sm:px-8 sm:py-12"
+            className="rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-4 py-8 text-center sm:px-6 sm:py-10 md:px-8 md:py-12"
             variants={item}
           >
             <p className="text-lg font-medium text-zinc-300 sm:text-xl">Em breve</p>
             <p className="mt-2 text-sm text-zinc-500">Acompanhe nossas redes para novidades.</p>
           </motion.div>
         ) : (
-          <ul className="space-y-4">
+          <ul className="space-y-3 sm:space-y-4">
             {NEWS.map((news, index) => (
               <motion.li key={`${news.title}-${index}`} variants={item}>
                 <a
@@ -56,7 +56,7 @@ export function NovidadesSection() {
                   {...(news.href.startsWith("http")
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="block rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-5 py-4 transition hover:border-amber-500/40 hover:bg-zinc-800/50 sm:px-6 sm:py-5"
+                  className="block rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-4 py-3 transition hover:border-amber-500/40 hover:bg-zinc-800/50 sm:px-5 sm:py-4 md:px-6 md:py-5"
                 >
                   <span className="block font-medium text-white">{news.title}</span>
                   <span className="mt-1 block text-sm text-zinc-500">{news.date}</span>

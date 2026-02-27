@@ -26,26 +26,26 @@ export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="bg-zinc-950 px-4 py-8 sm:py-10 md:py-16 lg:py-20"
+      className="bg-zinc-950 px-3 py-6 sm:px-4 sm:py-8 md:py-12 lg:py-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={container}
     >
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
+        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 md:gap-16 md:items-center">
         <div className="flex flex-col">
           <motion.h2
-            className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
+            className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:text-4xl"
             variants={item}
           >
             SOBRE
           </motion.h2>
           <motion.div
-            className="mb-4 h-0.5 w-16 bg-amber-500/80 sm:mb-6"
+            className="mb-3 h-0.5 w-12 bg-amber-500/80 sm:mb-4 sm:w-16 md:mb-6"
             variants={item}
             aria-hidden
           />
-          <motion.div className="space-y-4 text-base text-zinc-400 sm:text-lg sm:leading-relaxed" variants={item}>
+          <motion.div className="space-y-3 text-sm text-zinc-400 sm:space-y-4 sm:text-base md:text-lg md:leading-relaxed" variants={item}>
             {ABOUT_LONG.split("\n\n").map((paragraph, i) => (
               <p key={i}>
                 {paragraph}
@@ -54,7 +54,7 @@ export function AboutSection() {
           </motion.div>
         </div>
         <motion.div
-          className="relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-800 shadow-2xl md:aspect-[4/3]"
+          className="relative aspect-[4/3] overflow-hidden rounded-lg border border-zinc-800 shadow-2xl sm:aspect-[16/10] md:aspect-[4/3]"
           variants={item}
         >
           <Image

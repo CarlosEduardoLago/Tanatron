@@ -116,7 +116,7 @@ export function SocialLinks() {
   return (
     <motion.section
       id="redes"
-      className="bg-zinc-900/50 px-4 py-12 md:py-24"
+      className="bg-zinc-900/50 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -124,18 +124,18 @@ export function SocialLinks() {
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
-          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
+          className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:text-4xl"
           variants={item}
         >
           REDES
         </motion.h2>
         <motion.div
-          className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-8"
+          className="mb-4 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-8"
           variants={item}
           aria-hidden
         />
         <motion.div
-          className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
+          className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 md:gap-6"
           variants={item}
         >
           {linkConfig.map(({ key, href, label, ariaLabel, icon: Icon, iconColor, hoverBorder }) => (
@@ -144,7 +144,7 @@ export function SocialLinks() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`min-h-[48px] flex items-center justify-center gap-3 rounded-lg border border-zinc-700 bg-zinc-900/50 px-6 py-3 text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${hoverBorder}`}
+              className={`min-h-[44px] flex items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900/50 px-4 py-2.5 text-sm text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:min-h-[48px] sm:gap-3 sm:px-6 sm:py-3 sm:text-base ${hoverBorder}`}
               aria-label={ariaLabel}
             >
               <Icon className={`h-6 w-6 shrink-0 ${iconColor}`} />

@@ -74,14 +74,14 @@ export function Header() {
   return (
     <>
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-zinc-800/80 bg-black/90 backdrop-blur-sm">
-        <div className="flex h-14 items-center justify-between gap-4 px-4 sm:h-16 lg:px-6">
+        <div className="flex h-12 items-center justify-between gap-3 px-3 sm:h-14 sm:px-4 md:h-16 lg:px-6">
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="shrink-0 font-darkfont text-xl tracking-widest text-white hover:text-amber-500/90 sm:text-2xl"
+            className="shrink-0 font-darkfont text-lg tracking-widest text-white hover:text-amber-500/90 sm:text-xl md:text-2xl"
             aria-label={`${BAND_NAME} — início`}
           >
             {BAND_NAME.toUpperCase()}
@@ -153,7 +153,7 @@ export function Header() {
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             >
-              <div className="flex h-14 items-center justify-between border-b border-zinc-800 px-4 sm:h-16">
+              <div className="flex h-12 items-center justify-between border-b border-zinc-800 px-3 sm:h-14 sm:px-4 md:h-16">
                 <span className="font-logo text-lg tracking-widest text-white sm:text-xl">Menu</span>
                 <button
                   type="button"

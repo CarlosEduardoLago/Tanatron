@@ -21,7 +21,7 @@ export function GallerySection() {
   return (
     <motion.section
       id="galeria"
-      className="bg-black px-4 py-12 md:py-24"
+      className="bg-black px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
@@ -29,17 +29,17 @@ export function GallerySection() {
     >
       <div className="mx-auto max-w-6xl">
         <motion.h2
-          className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
+          className="mb-1.5 font-logo text-xl tracking-widest text-white sm:mb-2 sm:text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl"
           variants={item}
         >
           GALERIA
         </motion.h2>
         <motion.div
-          className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
+          className="mb-4 h-0.5 w-12 bg-amber-500/80 sm:mb-6 sm:w-16 md:mb-10 lg:mb-12"
           variants={item}
           aria-hidden
         />
-        <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
+        <div className="grid grid-cols-2 gap-1.5 sm:gap-3 md:grid-cols-3 md:gap-5">
           {GALLERY_IMAGES.map(({ src, alt }, index) => (
             <motion.div
               key={index}
