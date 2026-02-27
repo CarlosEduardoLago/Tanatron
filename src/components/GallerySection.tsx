@@ -5,6 +5,11 @@ import Image from "next/image";
 import { GALLERY_IMAGES } from "@/lib/constants";
 import { sectionContainerFast, sectionItem, cardHover, cardTap, springSoft } from "@/lib/motion";
 
+const getGallerySrc = (src: string) =>
+  process.env.NEXT_PUBLIC_BASE_PATH && src.startsWith("/")
+    ? process.env.NEXT_PUBLIC_BASE_PATH + src
+    : src;
+
 export function GallerySection() {
   return (
     <motion.section
@@ -28,7 +33,7 @@ export function GallerySection() {
           aria-hidden
         />
         <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
-          {GALLERY_IMAGES.map(({ src, alt }, index) => (
+          {GALLERY_IMAGES.map(({ src, alt, objectPosition }, index) => (
             <motion.div
               key={index}
               className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
@@ -38,10 +43,11 @@ export function GallerySection() {
               transition={springSoft}
             >
               <Image
-                src={src}
+                src={getGallerySrc(src)}
                 alt={alt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
+                style={objectPosition ? { objectPosition } : undefined}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div

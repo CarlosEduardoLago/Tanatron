@@ -15,13 +15,13 @@ export const ABOUT_IMAGE = "/ABOUT_IMAGE2.jpg";
 /** URL da imagem de capa do Hero (about.me/tanatron ou caminho ex: "/hero-band2.jpg") */
 export const HERO_IMAGE = "/hero-band2.jpg";
 
-export const GALLERY_IMAGES: { src: string; alt: string }[] = [
-  { src: "https://picsum.photos/seed/tanatron1/600/400", alt: "Tanatron ao vivo" },
-  { src: "https://picsum.photos/seed/tanatron2/600/400", alt: "Show Tanatron" },
-  { src: "https://picsum.photos/seed/tanatron3/600/400", alt: "Banda em palco" },
-  { src: "https://picsum.photos/seed/tanatron4/600/400", alt: "Apresentação" },
-  { src: "https://picsum.photos/seed/tanatron5/600/400", alt: "Tanatron" },
-  { src: "https://picsum.photos/seed/tanatron6/600/400", alt: "Death Metal São Luís" },
+export const GALLERY_IMAGES: { src: string; alt: string; objectPosition?: string }[] = [
+  { src: "/gallery/gallery-1.jpg", alt: "Tanatron ao vivo", objectPosition: "center top" },
+  { src: "/gallery/gallery-2.jpg", alt: "Show Tanatron", objectPosition: "center top" },
+  { src: "/gallery/gallery-3.jpg", alt: "Banda em palco" },
+  { src: "/gallery/gallery-4.jpg", alt: "Apresentação" },
+  { src: "/gallery/gallery-5.jpg", alt: "Tanatron" },
+  { src: "/gallery/gallery-6.jpg", alt: "Death Metal São Luís" },
 ];
 
 export const LINKS = {
