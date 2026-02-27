@@ -22,7 +22,7 @@ export function HeroSection() {
             src={heroImageSrc}
             alt=""
             fill
-            className="object-contain opacity-90 md:object-cover md:object-[center_20%] lg:object-center"
+            className="object-contain opacity-90 md:object-cover md:object-[center_38%] lg:object-[center_38%]"
             sizes="100vw"
             priority
           />
