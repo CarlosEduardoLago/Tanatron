@@ -11,7 +11,7 @@ import { Footer } from "@/components/Footer";
 
 const GallerySection = dynamic(() => import("@/components/GallerySection").then((m) => m.GallerySection), {
   loading: () => (
-    <section className="overflow-x-hidden bg-page px-4 py-12 md:py-24" aria-labelledby="galeria-placeholder">
+    <section className="overflow-x-clip bg-page px-4 py-12 md:py-24" aria-labelledby="galeria-placeholder">
       <div className="mx-auto min-w-0 max-w-6xl">
         <div className="mb-6 h-8 w-32 animate-pulse rounded bg-page-mid sm:mb-10 md:mb-12" />
         <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
@@ -27,7 +27,7 @@ const GallerySection = dynamic(() => import("@/components/GallerySection").then(
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full min-w-0 overflow-x-hidden bg-page pt-14 sm:pt-16">
+    <main className="min-h-screen w-full min-w-0 max-w-full overflow-x-clip bg-page pt-14 sm:pt-16">
       <Header />
       <HeroSection />
       <AboutSection />

@@ -9,13 +9,13 @@ export function DiscographySection() {
   return (
     <motion.section
       id="discografia"
-      className="overflow-x-hidden bg-page-dark px-4 py-12 md:py-24"
+      className="overflow-x-clip bg-page-dark px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionContainer}
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto min-w-0 max-w-6xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={sectionItem}
@@ -64,7 +64,7 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-6 min-w-0">
-                <div className="min-h-[352px] w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
+                <div className="min-h-[352px] w-full max-w-full min-w-0 overflow-x-clip rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
                     src={album.embedUrl}

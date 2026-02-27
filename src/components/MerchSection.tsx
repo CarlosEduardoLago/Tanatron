@@ -9,7 +9,7 @@ export function MerchSection() {
   return (
     <motion.section
       id="merch"
-      className="overflow-x-hidden bg-page px-4 py-12 md:py-24"
+      className="overflow-x-clip bg-page px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}

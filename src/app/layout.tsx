@@ -33,11 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark max-w-full overflow-x-hidden">
+    <html lang="pt-BR" className="dark w-full max-w-full overflow-x-clip">
       <body
-        className={`${darkfont.variable} ${metalMania.variable} ${oswald.variable} font-sans antialiased max-w-full overflow-x-hidden`}
+        className={`${darkfont.variable} ${metalMania.variable} ${oswald.variable} font-sans antialiased w-full max-w-full min-w-0 overflow-x-clip`}
       >
-        {children}
+        <div className="min-w-0 w-full max-w-full overflow-x-clip">
+          {children}
+        </div>
       </body>
     </html>
   );

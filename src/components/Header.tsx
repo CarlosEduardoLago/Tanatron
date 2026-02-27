@@ -76,8 +76,8 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-50 overflow-x-hidden border-b border-page-border/80 bg-page/95 backdrop-blur-sm">
-        <div className="flex h-14 min-w-0 items-center justify-between gap-4 overflow-x-hidden px-4 sm:h-16 lg:px-6">
+      <header className="fixed left-0 right-0 top-0 z-50 w-full max-w-full overflow-x-clip border-b border-page-border/80 bg-page/95 backdrop-blur-sm">
+        <div className="flex h-14 min-w-0 items-center justify-between gap-4 overflow-x-clip px-4 sm:h-16 lg:px-6">
           <motion.a
             href="#"
             onClick={(e) => {

@@ -14,7 +14,7 @@ export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="overflow-x-hidden bg-page-dark px-4 pt-6 pb-12 md:pt-10 md:pb-24"
+      className="overflow-x-clip bg-page-dark px-4 pt-6 pb-12 md:pt-10 md:pb-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
