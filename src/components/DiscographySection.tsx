@@ -70,7 +70,7 @@ export function DiscographySection() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-4 min-w-0">
+              <div className="flex flex-col gap-2 min-w-0">
                 <div className="min-h-[320px] w-full overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[400px] md:min-h-[420px]">
                   <iframe
                     title={`Ouvir ${album.title} no Spotify`}
