@@ -26,7 +26,7 @@ export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="bg-zinc-950 px-4 py-12 md:py-24"
+      className="bg-page-dark px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -54,7 +54,7 @@ export function AboutSection() {
           </motion.div>
         </div>
         <motion.div
-          className="relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-800 shadow-2xl md:aspect-[4/3]"
+          className="relative aspect-[16/10] overflow-hidden rounded-lg border border-page-border shadow-2xl md:aspect-[4/3]"
           variants={item}
         >
           <Image

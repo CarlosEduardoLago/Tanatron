@@ -116,7 +116,7 @@ export function SocialLinks() {
   return (
     <motion.section
       id="redes"
-      className="bg-zinc-900/50 px-4 py-12 md:py-24"
+      className="bg-page-mid/80 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -144,7 +144,7 @@ export function SocialLinks() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`min-h-[48px] flex items-center justify-center gap-3 rounded-lg border border-zinc-700 bg-zinc-900/50 px-6 py-3 text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${hoverBorder}`}
+              className={`min-h-[48px] flex items-center justify-center gap-3 rounded-lg border border-page-border bg-page-surface/80 px-6 py-3 text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${hoverBorder}`}
               aria-label={ariaLabel}
             >
               <Icon className={`h-6 w-6 shrink-0 ${iconColor}`} />

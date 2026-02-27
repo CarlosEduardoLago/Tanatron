@@ -20,7 +20,7 @@ export function NovidadesSection() {
   return (
     <motion.section
       id="novidades"
-      className="bg-zinc-900/50 px-4 py-12 md:py-24"
+      className="bg-page-mid/80 px-4 py-12 md:py-24"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -41,7 +41,7 @@ export function NovidadesSection() {
 
         {[...NEWS].length === 0 ? (
           <motion.div
-            className="rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-6 py-10 text-center sm:px-8 sm:py-12"
+            className="rounded-xl border border-page-border/80 bg-page-surface/50 px-6 py-10 text-center sm:px-8 sm:py-12"
             variants={item}
           >
             <p className="text-lg font-medium text-zinc-300 sm:text-xl">Em breve</p>
@@ -56,7 +56,7 @@ export function NovidadesSection() {
                   {...(news.href.startsWith("http")
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="block rounded-xl border border-zinc-700/80 bg-zinc-900/30 px-5 py-4 transition hover:border-amber-500/40 hover:bg-zinc-800/50 sm:px-6 sm:py-5"
+                  className="block rounded-xl border border-page-border/80 bg-page-surface/50 px-5 py-4 transition hover:border-amber-500/40 hover:bg-page-mid sm:px-6 sm:py-5"
                 >
                   <span className="block font-medium text-white">{news.title}</span>
                   <span className="mt-1 block text-sm text-zinc-500">{news.date}</span>

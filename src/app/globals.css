@@ -24,6 +24,12 @@
     --input: 0 0% 14.9%;
     --ring: 25 95% 53%;
     --radius: 0.5rem;
+    /* Paleta marrom escuro */
+    --page-bg: 28 18% 5%;
+    --section-dark: 28 14% 7%;
+    --section-mid: 28 12% 9%;
+    --surface: 28 10% 11%;
+    --border-warm: 28 10% 15%;
   }
 }
 
@@ -35,7 +41,8 @@
     @apply overflow-x-hidden;
   }
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    @apply text-foreground antialiased overflow-x-hidden;
+    background-color: hsl(var(--page-bg));
     -webkit-tap-highlight-color: transparent;
   }
 }

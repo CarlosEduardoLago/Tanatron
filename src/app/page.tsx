@@ -11,7 +11,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-black pt-14 sm:pt-16">
+    <main className="min-h-screen overflow-x-hidden bg-page pt-14 sm:pt-16">
       <Header />
       <HeroSection />
       <AboutSection />
