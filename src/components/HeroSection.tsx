@@ -1,32 +1,69 @@
 "use client";
 
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { HERO_IMAGE } from "@/lib/constants";
+import { useRef } from "react";
+import { HERO_IMAGE, BAND_NAME, TAGLINE } from "@/lib/constants";
 
 const heroImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && HERO_IMAGE.startsWith("/")
     ? process.env.NEXT_PUBLIC_BASE_PATH + HERO_IMAGE
     : HERO_IMAGE;
 
+/* Borda + glow amber harmonioso com a paleta marrom */
+const AMBER_BORDER = "1px solid rgba(245, 158, 11, 0.28)";
+const AMBER_GLOW =
+  "0 0 24px rgba(245, 158, 11, 0.1), 0 0 48px rgba(245, 158, 11, 0.05), inset 0 0 0 1px rgba(245, 158, 11, 0.12)";
+
 export function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0.88]);
+  const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.98]);
+
   return (
-    <section className="relative flex min-h-[min(100vh-3.5rem,85svh)] flex-col items-center justify-center overflow-hidden px-4 py-4 text-center sm:min-h-[80vh] sm:py-12 md:min-h-[85vh] md:py-20">
-      {/* Background: image (if set) + gradient + vignette + grid */}
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-[min(100vh-3.5rem,72svh)] flex-col items-center justify-center overflow-hidden px-4 pt-1 pb-3 text-center sm:min-h-[75vh] sm:pt-3 sm:pb-6 md:min-h-[80vh] md:pt-4 md:pb-8"
+    >
+      {/* Background: image (if set) + gradient + vignette */}
       <div
         className="absolute inset-0 bg-page"
         aria-hidden
       />
       {HERO_IMAGE ? (
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page" aria-hidden>
-          <Image
-            src={heroImageSrc}
-            alt=""
-            fill
-            className="object-contain object-center opacity-90"
-            sizes="(max-width: 767px) 100vw, (min-width: 768px) 1280px"
-            priority
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page"
+          aria-hidden
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <motion.div
+            className="absolute inset-[1%] rounded-sm pointer-events-none"
+            style={{
+              border: AMBER_BORDER,
+              boxShadow: AMBER_GLOW,
+            }}
+            aria-hidden
           />
-        </div>
+          <motion.div
+            className="absolute inset-[1%] flex items-center justify-center overflow-hidden rounded-sm"
+            style={{ opacity, scale }}
+          >
+            <Image
+              src={heroImageSrc}
+              alt={`${BAND_NAME} — ${TAGLINE}`}
+              fill
+              className="object-cover object-center opacity-95"
+              sizes="(max-width: 767px) 100vw, (min-width: 768px) 1280px"
+              priority
+            />
+          </motion.div>
+        </motion.div>
       ) : null}
       <div
         className="absolute inset-0 opacity-25"
@@ -37,18 +74,9 @@ export function HeroSection() {
         aria-hidden
       />
       <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-        aria-hidden
-      />
-      <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          boxShadow: "inset 0 0 80px 40px rgba(0,0,0,0.15)",
+          boxShadow: "inset 0 0 60px 30px rgba(0,0,0,0.1)",
         }}
         aria-hidden
       />
