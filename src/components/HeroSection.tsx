@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { BAND_NAME, TAGLINE, HERO_IMAGE } from "@/lib/constants";
+import { HERO_IMAGE } from "@/lib/constants";
 
 const heroImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && HERO_IMAGE.startsWith("/")
@@ -58,37 +57,6 @@ export function HeroSection() {
         className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"
         aria-hidden
       />
-
-      <motion.div
-        className="relative z-10 mt-10 flex flex-col items-center gap-2 sm:mt-14 sm:gap-3 md:mt-20"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <motion.h1
-          className="font-darkfont max-w-[92vw] text-4xl tracking-[0.08em] text-white sm:text-5xl sm:tracking-[0.1em] md:text-6xl md:tracking-[0.12em] lg:text-7xl lg:tracking-[0.16em] xl:text-[4.5rem] xl:tracking-[0.18em]"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          style={{
-            textShadow:
-              "0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(139, 92, 246, 0.15)",
-            WebkitFontSmoothing: "antialiased",
-            MozOsxFontSmoothing: "grayscale",
-            textRendering: "optimizeLegibility",
-          }}
-        >
-          {BAND_NAME.toUpperCase()}
-        </motion.h1>
-        <motion.p
-          className="text-sm font-medium uppercase tracking-widest text-zinc-400 sm:text-base"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 }}
-        >
-          {TAGLINE}
-        </motion.p>
-      </motion.div>
     </section>
   );
 }
