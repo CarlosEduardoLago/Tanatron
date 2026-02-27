@@ -43,10 +43,14 @@ export const sectionItemReduced = {
   show: { opacity: 1, transition: { duration: 0.2 } },
 };
 
-/** Entrada do hero (imagem) */
+/** Entrada do hero (imagem) — fluida e perceptível */
 export const heroImageVariants = {
-  hidden: { opacity: 0, scale: 0.98 },
-  visible: { opacity: 1, scale: 1, transition: tweenHero },
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "tween", duration: 0.85, ease: [0.22, 0.61, 0.36, 1] },
+  },
 };
 
 export const heroImageVariantsReduced = {
@@ -54,10 +58,13 @@ export const heroImageVariantsReduced = {
   visible: { opacity: 1, transition: { duration: 0.2 } },
 };
 
-/** Overlays do hero — entrada em segundo tempo (após a imagem) */
+/** Overlays do hero — entrada suave após a imagem */
 export const heroOverlayVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.4, delay: 0.22 } },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.6, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] },
+  },
 };
 
 /** Footer / elementos no final da página */
