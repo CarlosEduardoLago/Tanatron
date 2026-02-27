@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { HERO_IMAGE } from "@/lib/constants";
+import { HERO_IMAGE, BAND_NAME, TAGLINE } from "@/lib/constants";
 
 const heroImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && HERO_IMAGE.startsWith("/")
@@ -20,9 +20,9 @@ export function HeroSection() {
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden bg-black" aria-hidden>
           <Image
             src={heroImageSrc}
-            alt=""
+            alt={`${BAND_NAME} — ${TAGLINE}`}
             fill
-            className="object-contain opacity-90"
+            className="object-contain object-center opacity-90"
             sizes="(min-width: 768px) 1280px, 100vw"
             priority
           />
