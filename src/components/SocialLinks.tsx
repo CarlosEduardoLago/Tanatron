@@ -1,20 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { LINKS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  sectionContainer,
+  sectionContainerReduced,
+  sectionItem,
+  sectionItemReduced,
+  viewportOnce,
+} from "@/lib/motion";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -113,13 +107,17 @@ const linkConfig = [
 ] as const;
 
 export function SocialLinks() {
+  const reduceMotion = useReducedMotion();
+  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
+  const item = reduceMotion ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="redes"
       className="bg-page-mid/80 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
       <div className="mx-auto max-w-3xl">
@@ -144,7 +142,7 @@ export function SocialLinks() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`min-h-[44px] flex items-center justify-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-4 py-2.5 text-sm text-zinc-300 transition hover:scale-105 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page sm:min-h-[48px] sm:gap-3 sm:px-6 sm:py-3 sm:text-base ${hoverBorder}`}
+          className={`min-h-[44px] flex items-center justify-center gap-2 rounded-lg border border-page-border bg-page-surface/80 px-4 py-2.5 text-sm text-zinc-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page sm:min-h-[48px] sm:gap-3 sm:px-6 sm:py-3 sm:text-base ${hoverBorder}`}
               aria-label={ariaLabel}
             >
               <Icon className={`h-6 w-6 shrink-0 ${iconColor}`} />

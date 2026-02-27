@@ -1,35 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT_LONG, ABOUT_IMAGE } from "@/lib/constants";
+import {
+  sectionContainer,
+  sectionContainerReduced,
+  sectionItem,
+  sectionItemReduced,
+  viewportOnce,
+} from "@/lib/motion";
 
 const aboutImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && ABOUT_IMAGE.startsWith("/")
     ? process.env.NEXT_PUBLIC_BASE_PATH + ABOUT_IMAGE
     : ABOUT_IMAGE;
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-};
-
 export function AboutSection() {
+  const reduceMotion = useReducedMotion();
+  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
+  const item = reduceMotion ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="sobre"
       className="bg-page-dark px-3 py-6 sm:px-4 sm:py-8 md:py-12 lg:py-20"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 md:gap-16 md:items-center">

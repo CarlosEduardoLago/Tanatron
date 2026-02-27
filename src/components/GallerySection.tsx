@@ -3,23 +3,20 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { GALLERY_IMAGES } from "@/lib/constants";
-import { viewportTight } from "@/lib/motion";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  galleryHoverScale,
+  galleryTapScale,
+  sectionContainer,
+  sectionContainerReduced,
+  sectionItem,
+  sectionItemReduced,
+  viewportTight,
+} from "@/lib/motion";
 
 export function GallerySection() {
   const reduceMotion = useReducedMotion();
+  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
+  const item = reduceMotion ? sectionItemReduced : sectionItem;
 
   return (
     <motion.section
@@ -48,8 +45,8 @@ export function GallerySection() {
               key={index}
               className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
               variants={item}
-              whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              whileHover={reduceMotion ? undefined : { scale: galleryHoverScale }}
+              whileTap={reduceMotion ? undefined : { scale: galleryTapScale }}
               transition={{ duration: 0.2 }}
             >
               <Image

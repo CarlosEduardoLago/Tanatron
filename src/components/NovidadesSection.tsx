@@ -1,29 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { NEWS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  sectionContainer,
+  sectionContainerReduced,
+  sectionItem,
+  sectionItemReduced,
+  viewportOnce,
+} from "@/lib/motion";
 
 export function NovidadesSection() {
+  const reduceMotion = useReducedMotion();
+  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
+  const item = reduceMotion ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="novidades"
       className="bg-page-mid/80 px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
       <div className="mx-auto max-w-4xl">

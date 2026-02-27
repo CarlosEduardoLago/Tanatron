@@ -1,30 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LINKS } from "@/lib/constants";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+import {
+  sectionContainer,
+  sectionContainerReduced,
+  sectionItem,
+  sectionItemReduced,
+  viewportOnce,
+} from "@/lib/motion";
 
 export function MerchSection() {
+  const reduceMotion = useReducedMotion();
+  const container = reduceMotion ? sectionContainerReduced : sectionContainer;
+  const item = reduceMotion ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="merch"
       className="bg-page px-3 py-8 sm:px-4 sm:py-10 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewportOnce}
       variants={container}
     >
       <div className="mx-auto max-w-3xl">
@@ -50,7 +48,7 @@ export function MerchSection() {
             asChild
             variant="secondary"
             size="lg"
-            className="min-h-[44px] w-full transition-all hover:scale-105 sm:min-h-[48px] sm:w-auto"
+            className="min-h-[44px] w-full transition-transform duration-200 hover:scale-[1.02] sm:min-h-[48px] sm:w-auto"
           >
           <a
             href={LINKS.aboutMe}
