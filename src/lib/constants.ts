@@ -20,8 +20,6 @@ export const GALLERY_IMAGES: { src: string; alt: string; objectPosition?: string
   { src: "/gallery/gallery-2.jpg", alt: "Show Tanatron", objectPosition: "center top" },
   { src: "/gallery/gallery-3.jpg", alt: "Banda em palco" },
   { src: "/gallery/gallery-4.jpg", alt: "Apresentação" },
-  { src: "/gallery/gallery-5.jpg", alt: "Tanatron" },
-  { src: "/gallery/gallery-6.jpg", alt: "Death Metal São Luís" },
 ];
 
 export const LINKS = {

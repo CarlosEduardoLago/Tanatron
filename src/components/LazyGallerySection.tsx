@@ -9,7 +9,7 @@ const GallerySection = dynamic(() => import("@/components/GallerySection").then(
       <div className="mx-auto min-w-0 max-w-6xl">
         <div className="mb-6 h-8 w-32 animate-pulse rounded bg-page-mid sm:mb-10 md:mb-12" />
         <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <div key={i} className="aspect-[4/3] animate-pulse rounded-lg bg-page-mid" />
           ))}
         </div>
@@ -47,7 +47,7 @@ export function LazyGallerySection() {
           <div className="mx-auto min-w-0 max-w-6xl">
             <div className="mb-6 h-8 w-32 animate-pulse rounded bg-page-mid sm:mb-10 md:mb-12" />
             <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
-              {[...Array(6)].map((_, i) => (
+              {[...Array(4)].map((_, i) => (
                 <div key={i} className="aspect-[4/3] animate-pulse rounded-lg bg-page-mid" />
               ))}
             </div>
