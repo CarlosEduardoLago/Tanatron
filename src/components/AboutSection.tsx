@@ -14,13 +14,13 @@ export function AboutSection() {
   return (
     <motion.section
       id="sobre"
-      className="overflow-x-clip bg-page-dark px-4 pt-6 pb-12 md:pt-10 md:pb-24"
+      className="overflow-x-clip bg-page-dark px-4 pt-6 pb-12 md:pt-10 md:pb-24 lg:px-12 xl:px-16"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionContainer}
     >
-        <div className="mx-auto grid min-w-0 max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-8 md:grid-cols-2 md:gap-16 md:items-center lg:max-w-7xl lg:gap-20">
         <div className="flex min-w-0 flex-col">
           <motion.h2
             className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"

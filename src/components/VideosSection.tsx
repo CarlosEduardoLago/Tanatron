@@ -8,13 +8,13 @@ export function VideosSection() {
   return (
     <motion.section
       id="videos"
-      className="overflow-x-clip bg-page px-4 py-12 md:py-24"
+      className="overflow-x-clip bg-page px-4 py-12 md:py-24 lg:px-12 xl:px-16"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionContainer}
     >
-      <div className="mx-auto min-w-0 max-w-6xl">
+      <div className="mx-auto min-w-0 max-w-6xl lg:max-w-7xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={sectionItem}

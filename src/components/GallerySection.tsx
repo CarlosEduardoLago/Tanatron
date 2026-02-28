@@ -14,13 +14,13 @@ export function GallerySection() {
   return (
     <motion.section
       id="galeria"
-      className="overflow-x-clip bg-page px-4 py-12 md:py-24"
+      className="overflow-x-clip bg-page px-4 py-12 md:py-24 lg:px-12 xl:px-16"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
       variants={sectionContainerFast}
     >
-      <div className="mx-auto min-w-0 max-w-6xl">
+      <div className="mx-auto min-w-0 max-w-6xl lg:max-w-7xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={sectionItem}
@@ -32,7 +32,7 @@ export function GallerySection() {
           variants={sectionItem}
           aria-hidden
         />
-        <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5">
+        <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8">
           {GALLERY_IMAGES.map(({ src, alt, objectPosition }, index) => (
             <motion.div
               key={index}

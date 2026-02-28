@@ -29,7 +29,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[min(100vh-3.5rem,72svh)] min-w-0 max-w-full flex-col items-center justify-center overflow-x-clip px-4 pt-1 pb-3 text-center sm:min-h-[75vh] sm:pt-3 sm:pb-6 md:min-h-[80vh] md:pt-4 md:pb-8"
+      className="relative flex min-h-[min(100vh-3.5rem,72svh)] min-w-0 max-w-full flex-col items-center justify-center overflow-x-clip px-4 pt-1 pb-3 text-center sm:min-h-[75vh] sm:pt-3 sm:pb-6 md:min-h-[80vh] md:pt-4 md:pb-8 lg:max-w-[1440px] lg:mx-auto"
     >
       {/* Background: image (if set) + gradient + vignette */}
       <div
@@ -60,7 +60,7 @@ export function HeroSection() {
               src={heroImageSrc}
               alt={`${BAND_NAME} — ${TAGLINE}`}
               fill
-              className="object-cover object-center opacity-95"
+              className="object-cover object-center opacity-95 lg:object-contain"
               sizes="(max-width: 767px) 100vw, (min-width: 768px) 1280px"
               priority
             />
