@@ -117,6 +117,9 @@ export function HeroSection() {
         className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"
         aria-hidden
       />
+      <h1 className="sr-only">
+        {BAND_NAME} — {TAGLINE}
+      </h1>
     </section>
   );
 }

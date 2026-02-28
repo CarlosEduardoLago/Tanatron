@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { GALLERY_IMAGES } from "@/lib/constants";
-import { sectionContainerFast, sectionItem, cardHover, cardTap, springSoft } from "@/lib/motion";
+import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
+import { sectionContainerFast, sectionContainerReduced, sectionItem, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 const getGallerySrc = (src: string) =>
   process.env.NEXT_PUBLIC_BASE_PATH && src.startsWith("/")
@@ -11,6 +12,10 @@ const getGallerySrc = (src: string) =>
     : src;
 
 export function GallerySection() {
+  const reduced = useReducedMotionContext();
+  const containerVariants = reduced ? sectionContainerReduced : sectionContainerFast;
+  const itemVariants = reduced ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="galeria"
@@ -18,18 +23,18 @@ export function GallerySection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
-      variants={sectionContainerFast}
+      variants={containerVariants}
     >
       <div className="mx-auto min-w-0 max-w-6xl lg:max-w-7xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
-          variants={sectionItem}
+          variants={itemVariants}
         >
           GALERIA
         </motion.h2>
         <motion.div
           className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
-          variants={sectionItem}
+          variants={itemVariants}
           aria-hidden
         />
         <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8">
@@ -37,7 +42,7 @@ export function GallerySection() {
             <motion.div
               key={index}
               className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
-              variants={sectionItem}
+              variants={itemVariants}
               whileHover={cardHover}
               whileTap={cardTap}
               transition={springSoft}

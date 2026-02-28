@@ -2,6 +2,9 @@ export const BAND_NAME = "Tanatron";
 export const TAGLINE = "Death Metal • São Luís/MA";
 export const BIO = "Musicista/banda. Nossas redes, vídeos e músicas.";
 
+/** URL base do site (GitHub Pages) */
+export const SITE_URL = "https://carloseduardolago.github.io/Tanatron";
+
 export const ABOUT_LONG = `A Tanatron nasceu na cena de Death Metal de São Luís do Maranhão, levando peso, atitude e riffs na veia. Com influências que vão do death metal clássico ao extremo contemporâneo, a banda consolidou sua sonoridade em palcos e estúdios, sempre em busca da intensidade que define o gênero.
 
 Nossas redes, vídeos e músicas estão espalhadas por Spotify, YouTube e redes sociais e aqui você encontra tudo reunido. Death Metal feito no Nordeste do Brasil.`;
@@ -63,11 +66,7 @@ export const VIDEOS = [
   { id: "KD6hW6JtkwI", title: "Tanatron — Vídeo" },
 ] as const;
 
-export const NEWS = [
-  { title: "Tanatron no Spotify e YouTube", date: "2024", excerpt: "Ouça nosso álbum e assista aos clipes no canal oficial.", href: "#discografia" },
-] as const;
-
-/** Posts do Instagram para embed na página */
+/** Posts do Instagram para embed na seção Novidades */
 export const INSTAGRAM_POSTS = [
   "https://www.instagram.com/p/DULhkeNiIgF/",
   "https://www.instagram.com/p/DUJmX09j0i-/",

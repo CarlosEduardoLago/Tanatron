@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import { VIDEOS, LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, sectionItemFromLeft, sectionItemFromRight, cardHover, cardTap, springSoft } from "@/lib/motion";
+import { EmbedErrorBoundary } from "@/components/EmbedErrorBoundary";
+import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
+import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemFromLeft, sectionItemFromRight, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 export function VideosSection() {
+  const reduced = useReducedMotionContext();
+  const containerVariants = reduced ? sectionContainerReduced : sectionContainer;
+  const itemVariants = reduced ? sectionItemReduced : sectionItem;
   return (
     <motion.section
       id="videos"
@@ -12,21 +17,21 @@ export function VideosSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={sectionContainer}
+      variants={containerVariants}
     >
       <div className="mx-auto min-w-0 max-w-6xl lg:max-w-7xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
-          variants={sectionItem}
+          variants={itemVariants}
         >
           VÍDEOS
         </motion.h2>
         <motion.div
           className="mb-8 h-0.5 w-16 bg-amber-500/80 sm:mb-10 md:mb-12"
-          variants={sectionItem}
+          variants={itemVariants}
           aria-hidden
         />
-        <motion.p className="mb-8 text-zinc-400 sm:mb-10 md:mb-12" variants={sectionItem}>
+        <motion.p className="mb-8 text-zinc-400 sm:mb-10 md:mb-12" variants={itemVariants}>
           Assista aos nossos clipes e apresentações no YouTube.
         </motion.p>
 
@@ -35,28 +40,34 @@ export function VideosSection() {
             <motion.div
               key={`${video.id}-${index}`}
               className="flex min-w-0 flex-col gap-3"
-              variants={index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight}
+              variants={reduced ? sectionItemReduced : (index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight)}
               whileHover={cardHover}
               whileTap={cardTap}
               transition={springSoft}
             >
-              <div className="relative aspect-video w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
-                <iframe
-                  title={video.title}
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  className="absolute inset-0 h-full w-full max-w-full"
-                  style={{ maxWidth: "100%", minWidth: 0 }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <EmbedErrorBoundary
+                fallbackTitle={video.title}
+                fallbackHref={`https://www.youtube.com/watch?v=${video.id}`}
+                fallbackLinkText="Assistir no YouTube"
+              >
+                <div className="relative aspect-video w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80">
+                  <iframe
+                    title={video.title}
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    className="absolute inset-0 h-full w-full max-w-full"
+                    style={{ maxWidth: "100%", minWidth: 0 }}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              </EmbedErrorBoundary>
               <h3 className="text-sm font-medium text-zinc-300 sm:text-base">{video.title}</h3>
             </motion.div>
           ))}
         </div>
 
-        <motion.div className="mt-8 flex min-w-0 flex-wrap items-center justify-center gap-4 sm:mt-10 sm:flex-row" variants={sectionItem}>
+        <motion.div className="mt-8 flex min-w-0 flex-wrap items-center justify-center gap-4 sm:mt-10 sm:flex-row" variants={itemVariants}>
           <motion.a
             href={LINKS.youtube}
             whileHover={cardHover}

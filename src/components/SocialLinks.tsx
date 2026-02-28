@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, cardHover, cardTap, springSoft } from "@/lib/motion";
+import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
+import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -101,6 +102,10 @@ const linkConfig = [
 ] as const;
 
 export function SocialLinks() {
+  const reduced = useReducedMotionContext();
+  const containerVariants = reduced ? sectionContainerReduced : sectionContainer;
+  const itemVariants = reduced ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="redes"
@@ -108,23 +113,23 @@ export function SocialLinks() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={sectionContainer}
+      variants={containerVariants}
     >
       <div className="mx-auto min-w-0 max-w-3xl lg:max-w-4xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
-          variants={sectionItem}
+          variants={itemVariants}
         >
           REDES
         </motion.h2>
         <motion.div
           className="mb-6 h-0.5 w-16 bg-amber-500/80 sm:mb-8"
-          variants={sectionItem}
+          variants={itemVariants}
           aria-hidden
         />
         <motion.div
           className="flex min-w-0 flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
-          variants={sectionItem}
+          variants={itemVariants}
         >
           {linkConfig.map(({ key, href, label, ariaLabel, icon: Icon, iconColor, hoverBorder }) => (
             <motion.a

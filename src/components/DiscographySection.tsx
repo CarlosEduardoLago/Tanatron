@@ -3,9 +3,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { DISCOGRAPHY, LINKS } from "@/lib/constants";
-import { sectionContainer, sectionItem, sectionItemFromLeft, sectionItemFromRight, cardHover, cardTap, springSoft } from "@/lib/motion";
+import { EmbedErrorBoundary } from "@/components/EmbedErrorBoundary";
+import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
+import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemFromLeft, sectionItemFromRight, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 export function DiscographySection() {
+  const reduced = useReducedMotionContext();
+  const containerVariants = reduced ? sectionContainerReduced : sectionContainer;
+  const itemVariants = reduced ? sectionItemReduced : sectionItem;
+
   return (
     <motion.section
       id="discografia"
@@ -13,18 +19,18 @@ export function DiscographySection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={sectionContainer}
+      variants={containerVariants}
     >
       <div className="mx-auto min-w-0 max-w-6xl lg:max-w-7xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
-          variants={sectionItem}
+          variants={itemVariants}
         >
           DISCOGRAFIA
         </motion.h2>
         <motion.div
           className="mb-10 h-0.5 w-16 bg-amber-500/80 sm:mb-12 md:mb-14"
-          variants={sectionItem}
+          variants={itemVariants}
           aria-hidden
         />
 
@@ -33,7 +39,7 @@ export function DiscographySection() {
             <motion.article
               key={`${album.title}-${album.year}`}
               className="grid min-w-0 gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-10"
-              variants={index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight}
+              variants={reduced ? sectionItemReduced : (index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight)}
             >
               <div className="flex flex-col gap-4 md:items-stretch">
                 <motion.div
@@ -64,16 +70,22 @@ export function DiscographySection() {
               </div>
 
               <div className="flex flex-col gap-6 min-w-0">
-                <div className="min-h-[352px] w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
-                  <iframe
-                    title={`Ouvir ${album.title} no Spotify`}
-                    src={album.embedUrl}
-                    className="h-full min-h-[352px] w-full max-w-full sm:min-h-[380px]"
-                    style={{ maxWidth: "100%", minWidth: 0 }}
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                  />
-                </div>
+                <EmbedErrorBoundary
+                  fallbackTitle={`Ouvir ${album.title}`}
+                  fallbackHref={LINKS.spotify}
+                  fallbackLinkText="Ouvir no Spotify"
+                >
+                  <div className="min-h-[352px] w-full max-w-full min-w-0 overflow-hidden rounded-lg border border-page-border bg-page-surface/80 sm:min-h-[380px]">
+                    <iframe
+                      title={`Ouvir ${album.title} no Spotify`}
+                      src={album.embedUrl}
+                      className="h-full min-h-[352px] w-full max-w-full sm:min-h-[380px]"
+                      style={{ maxWidth: "100%", minWidth: 0 }}
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                    />
+                  </div>
+                </EmbedErrorBoundary>
                 {Array.isArray(album.tracklist) && album.tracklist.length > 0 && (
                   <div>
                     <h4 className="mb-2 text-sm font-medium uppercase tracking-wider text-zinc-500">Tracklist</h4>
@@ -89,7 +101,7 @@ export function DiscographySection() {
           ))}
         </div>
 
-        <motion.div className="mt-10 text-center md:mt-12" variants={sectionItem}>
+        <motion.div className="mt-10 text-center md:mt-12" variants={itemVariants}>
           <motion.a
             href={LINKS.spotify}
             whileHover={cardHover}
