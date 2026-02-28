@@ -66,3 +66,9 @@ export const VIDEOS = [
 export const NEWS = [
   { title: "Tanatron no Spotify e YouTube", date: "2024", excerpt: "Ouça nosso álbum e assista aos clipes no canal oficial.", href: "#discografia" },
 ] as const;
+
+/** Posts do Instagram para embed na página */
+export const INSTAGRAM_POSTS = [
+  "https://www.instagram.com/p/DULhkeNiIgF/",
+  "https://www.instagram.com/p/DUJmX09j0i-/",
+] as const;

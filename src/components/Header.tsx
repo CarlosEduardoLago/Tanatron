@@ -12,6 +12,7 @@ const navItems = [
   { label: "DISCOGRAFIA", href: "#discografia" },
   { label: "FOTOS", href: "#galeria" },
   { label: "VÍDEOS", href: "#videos" },
+  { label: "INSTAGRAM", href: "#instagram" },
   { label: "CONTATO", href: "#redes" },
 ];
 

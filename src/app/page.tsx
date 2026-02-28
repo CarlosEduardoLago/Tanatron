@@ -5,6 +5,7 @@ import { DiscographySection } from "@/components/DiscographySection";
 import { VideosSection } from "@/components/VideosSection";
 import { NovidadesSection } from "@/components/NovidadesSection";
 import { LazyGallerySection } from "@/components/LazyGallerySection";
+import { InstagramSection } from "@/components/InstagramSection";
 import { MerchSection } from "@/components/MerchSection";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Footer } from "@/components/Footer";
@@ -19,6 +20,7 @@ export default function Home() {
       <VideosSection />
       <NovidadesSection />
       <LazyGallerySection />
+      <InstagramSection />
       <MerchSection />
       <SocialLinks />
       <Footer />

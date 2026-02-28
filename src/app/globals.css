@@ -87,3 +87,12 @@
     overflow-x: hidden !important;
   }
 }
+
+/* Integra o embed do Instagram ao tema escuro */
+.instagram-embed-wrapper {
+  border-radius: 0.75rem;
+}
+.instagram-embed-wrapper iframe {
+  border-radius: 0.75rem;
+  max-width: 100%;
+}

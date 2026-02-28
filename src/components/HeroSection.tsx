@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import { HERO_IMAGE, BAND_NAME, TAGLINE } from "@/lib/constants";
@@ -10,6 +10,8 @@ const heroImageSrc =
     ? process.env.NEXT_PUBLIC_BASE_PATH + HERO_IMAGE
     : HERO_IMAGE;
 
+const easeOutExpo = [0.22, 0.61, 0.36, 1] as const;
+
 /* Borda + glow amber harmonioso com a paleta marrom */
 const AMBER_BORDER = "1px solid rgba(245, 158, 11, 0.28)";
 const AMBER_GLOW =
@@ -17,44 +19,71 @@ const AMBER_GLOW =
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0.88]);
-  const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.98]);
-  const imageY = useTransform(scrollYProgress, [0, 0.5], [0, 30]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.3], [0.25, 0.35]);
+
+  /* Ken Burns + parallax: zoom out sutil e movimento vertical/horizontal */
+  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.97]);
+  const imageY = useTransform(scrollYProgress, [0, 0.5], [0, 24]);
+  const imageX = useTransform(scrollYProgress, [0, 0.5], [0, 8]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0.9]);
+
+  /* Borda: parallax mais lento que a imagem */
+  const borderY = useTransform(scrollYProgress, [0, 0.5], [0, 12]);
+
+  /* Overlay: transição mais rápida */
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.25], [0.2, 0.4]);
+
+  /* Vignette: intensifica ao rolar */
+  const vignetteOpacity = useTransform(scrollYProgress, [0, 0.4], [0.4, 0.75]);
+
+  const imageStyle = prefersReducedMotion
+    ? undefined
+    : { opacity: imageOpacity, scale: imageScale, x: imageX, y: imageY };
+
+  const borderStyle = prefersReducedMotion ? undefined : { y: borderY };
+
+  const overlayStyle = prefersReducedMotion
+    ? { opacity: 0.25 }
+    : { opacity: overlayOpacity };
+
+  const vignetteStyle = prefersReducedMotion
+    ? { opacity: 0.5 }
+    : { opacity: vignetteOpacity };
 
   return (
     <section
       ref={sectionRef}
       className="relative flex min-h-[min(100vh-3.5rem,72svh)] min-w-0 max-w-full flex-col items-center justify-center overflow-x-clip px-4 pt-1 pb-3 text-center sm:min-h-[75vh] sm:pt-3 sm:pb-6 md:min-h-[80vh] md:pt-4 md:pb-8 lg:max-w-[1440px] lg:mx-auto"
     >
-      {/* Background: image (if set) + gradient + vignette */}
-      <div
-        className="absolute inset-0 bg-page"
-        aria-hidden
-      />
+      <div className="absolute inset-0 bg-page" aria-hidden />
       {HERO_IMAGE ? (
         <motion.div
           className="absolute inset-0 flex items-center justify-center overflow-hidden bg-page"
           aria-hidden
-          initial={{ opacity: 0, scale: 0.98 }}
+          initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+          transition={{
+            duration: prefersReducedMotion ? 0.2 : 1,
+            ease: easeOutExpo,
+          }}
         >
           <motion.div
             className="absolute inset-[1%] rounded-sm pointer-events-none"
             style={{
               border: AMBER_BORDER,
               boxShadow: AMBER_GLOW,
+              ...borderStyle,
             }}
             aria-hidden
           />
           <motion.div
             className="absolute inset-[1%] flex items-center justify-center overflow-hidden rounded-sm"
-            style={{ opacity, scale, y: imageY }}
+            style={imageStyle}
           >
             <Image
               src={heroImageSrc}
@@ -68,22 +97,22 @@ export function HeroSection() {
         </motion.div>
       ) : null}
       <motion.div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(30, 27, 75, 0.4) 0%, transparent 50%), radial-gradient(ellipse 100% 100% at 50% 100%, rgba(249, 115, 22, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 45%)",
-          opacity: overlayOpacity,
+          ...overlayStyle,
         }}
         aria-hidden
       />
-      <div
+      <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
-          boxShadow: "inset 0 0 60px 30px rgba(0,0,0,0.1)",
+          boxShadow: "inset 0 0 80px 40px rgba(0,0,0,0.35)",
+          ...vignetteStyle,
         }}
         aria-hidden
       />
-      {/* Leve escurecimento na base */}
       <div
         className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"
         aria-hidden
