@@ -49,6 +49,8 @@ npm run build
 npm start
 ```
 
+Antes do build, o script `optimize-images` comprime automaticamente as imagens em `public/gallery/` (redimensiona para max 800px, qualidade 80). Para rodar manualmente: `npm run optimize-images`.
+
 ## Deploy
 
 O projeto pode ser implantado na [Vercel](https://vercel.com) conectando o repositório no GitHub (ou outro Git). O build usa `next build`; não é necessário configurar variáveis de ambiente para o conteúdo atual.

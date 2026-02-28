@@ -53,6 +53,7 @@ export function GallerySection() {
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 style={objectPosition ? { objectPosition } : undefined}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
+                decoding="async"
               />
               <div
                 className="absolute inset-0 rounded-lg opacity-0 ring-2 ring-amber-500/30 ring-offset-2 ring-offset-page transition-opacity group-hover:opacity-100"
