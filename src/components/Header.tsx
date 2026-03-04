@@ -1,8 +1,13 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { BAND_NAME, LINKS } from "@/lib/constants";
+
+const logoSrc = process.env.NEXT_PUBLIC_BASE_PATH
+  ? process.env.NEXT_PUBLIC_BASE_PATH + "/logo.png"
+  : "/logo.png";
 import { navLinkHover, iconHover } from "@/lib/motion";
 
 const navItems = [
@@ -84,11 +89,18 @@ export function Header() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="shrink-0 font-darkfont text-xl tracking-widest text-white hover:text-amber-500/90 sm:text-2xl"
+            className="relative flex shrink-0 items-center transition-opacity hover:opacity-90"
             aria-label={`${BAND_NAME} — início`}
             whileHover={navLinkHover}
           >
-            {BAND_NAME.toUpperCase()}
+            <Image
+              src={logoSrc}
+              alt={`${BAND_NAME} — início`}
+              width={140}
+              height={44}
+              className="h-8 w-auto object-contain sm:h-10"
+              priority
+            />
           </motion.a>
 
           {/* Desktop: nav + social */}
