@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { HERO_IMAGE, BAND_NAME, TAGLINE } from "@/lib/constants";
+import { HERO_IMAGE, HERO_IMAGE_ASPECT_RATIO, BAND_NAME, TAGLINE } from "@/lib/constants";
 
 const heroImageSrc =
   process.env.NEXT_PUBLIC_BASE_PATH && HERO_IMAGE.startsWith("/")
@@ -58,7 +58,8 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[min(100vh-3.5rem,72svh)] min-w-0 max-w-full flex-col items-center justify-center overflow-x-clip px-4 pt-1 pb-3 text-center sm:min-h-[75vh] sm:pt-3 sm:pb-6 md:min-h-[80vh] md:pt-4 md:pb-8 lg:max-w-[1440px] lg:mx-auto"
+      className="relative flex min-w-0 w-full max-w-full flex-col items-center justify-center overflow-x-clip px-0 text-center lg:mx-auto lg:max-w-[1440px]"
+      style={{ aspectRatio: HERO_IMAGE_ASPECT_RATIO }}
     >
       <div className="absolute inset-0 bg-page" aria-hidden />
       {HERO_IMAGE ? (
@@ -73,7 +74,7 @@ export function HeroSection() {
           }}
         >
           <motion.div
-            className="absolute inset-[1%] rounded-sm pointer-events-none"
+            className="absolute inset-0 rounded-sm pointer-events-none"
             style={{
               border: AMBER_BORDER,
               boxShadow: AMBER_GLOW,
@@ -82,15 +83,16 @@ export function HeroSection() {
             aria-hidden
           />
           <motion.div
-            className="absolute inset-[1%] flex items-center justify-center overflow-hidden rounded-sm"
+            className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-sm"
             style={imageStyle}
           >
             <Image
               src={heroImageSrc}
               alt={`${BAND_NAME} — ${TAGLINE}`}
               fill
-              className="object-cover object-center opacity-95 lg:object-contain"
-              sizes="(max-width: 767px) 100vw, (min-width: 768px) 1280px"
+              className="object-cover object-center opacity-95"
+              style={{ objectPosition: "center center" }}
+              sizes="(max-width: 767px) 100vw, (min-width: 768px) 1440px"
               priority
             />
           </motion.div>

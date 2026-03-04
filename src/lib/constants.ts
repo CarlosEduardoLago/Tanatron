@@ -15,8 +15,11 @@ export const BAND_MEMBERS: { name: string; role: string }[] = [
 
 export const ABOUT_IMAGE = "/ABOUT_IMAGE2.jpg";
 
-/** URL da imagem de capa do Hero (about.me/tanatron ou caminho ex: "/hero-band2.jpg") */
-export const HERO_IMAGE = "/hero-band2.jpg";
+/** Imagem de capa do Hero (public/hero.jpeg) */
+export const HERO_IMAGE = "/hero.jpeg";
+
+/** Proporção largura/altura da imagem hero (ex.: 16/9). Ajuste conforme hero.jpeg para evitar faixas pretas. */
+export const HERO_IMAGE_ASPECT_RATIO = 16 / 9;
 
 /** Imagens e dados da seção Membros (public/membros), ordem: membro1, 2, 3, 4 */
 export const MEMBROS_IMAGES: {
