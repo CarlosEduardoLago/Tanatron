@@ -8,7 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const GALLERY_DIR = path.join(process.cwd(), "public", "gallery");
+const GALLERY_DIR = path.join(process.cwd(), "public", "galeria");
 const MAX_WIDTH = 800;
 const QUALITY = 80;
 
@@ -22,14 +22,14 @@ async function optimizeImages() {
   }
 
   if (!fs.existsSync(GALLERY_DIR)) {
-    console.log("Pasta public/gallery não encontrada.");
+    console.log("Pasta public/galeria não encontrada.");
     return;
   }
 
   const files = fs.readdirSync(GALLERY_DIR).filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f));
 
   if (files.length === 0) {
-    console.log("Nenhuma imagem encontrada em public/gallery");
+    console.log("Nenhuma imagem encontrada em public/galeria");
     return;
   }
 

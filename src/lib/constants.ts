@@ -32,12 +32,12 @@ export const MEMBROS_IMAGES: {
   { src: "/membros/membro4.png", alt: "Weeslem Lima, bateria", name: "Weeslem Lima", role: "Bateria" },
 ];
 
-/** Fotos da seção Galeria (public/gallery). Manter proporção 4:3 nas novas imagens para padrão visual. objectPosition opcional controla o enquadramento no crop. */
+/** Fotos da seção Galeria (public/galeria). Manter proporção 4:3 nas novas imagens para padrão visual. objectPosition opcional controla o enquadramento no crop. */
 export const GALLERY_PHOTOS: { src: string; alt: string; objectPosition?: string }[] = [
-  { src: "/gallery/Galeria1.png", alt: "Tanatron — galeria 1", objectPosition: "center center" },
-  { src: "/gallery/Galeria2.png", alt: "Tanatron — galeria 2", objectPosition: "center center" },
-  { src: "/gallery/Galeria3.png", alt: "Tanatron — galeria 3", objectPosition: "center center" },
-  { src: "/gallery/Galeria4.png", alt: "Tanatron — galeria 4", objectPosition: "center center" },
+  { src: "/galeria/galeria_1.jpg", alt: "Tanatron — galeria 1", objectPosition: "center center" },
+  { src: "/galeria/galeria_2.jpg", alt: "Tanatron — galeria 2", objectPosition: "center center" },
+  { src: "/galeria/galeria_3.jpg", alt: "Tanatron — galeria 3", objectPosition: "center center" },
+  { src: "/galeria/galeria_4.jpg", alt: "Tanatron — galeria 4", objectPosition: "center center" },
 ];
 
 export const LINKS = {
