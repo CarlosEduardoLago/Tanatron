@@ -89,7 +89,7 @@ export function Header() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="relative flex shrink-0 items-center transition-opacity hover:opacity-90"
+            className="relative flex shrink-0 items-center rounded-sm bg-page/95 transition-opacity hover:opacity-90"
             aria-label={`${BAND_NAME} — início`}
             whileHover={navLinkHover}
           >
