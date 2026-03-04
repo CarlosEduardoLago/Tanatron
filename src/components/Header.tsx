@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BAND_NAME, LINKS } from "@/lib/constants";
 
 const logoSrc = process.env.NEXT_PUBLIC_BASE_PATH
-  ? process.env.NEXT_PUBLIC_BASE_PATH + "/logo.png"
-  : "/logo.png";
+  ? process.env.NEXT_PUBLIC_BASE_PATH + "/logo-no-bg.png"
+  : "/logo-no-bg.png";
 import { navLinkHover, iconHover } from "@/lib/motion";
 
 const navItems = [
