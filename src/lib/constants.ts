@@ -32,6 +32,14 @@ export const MEMBROS_IMAGES: {
   { src: "/membros/membro4.png", alt: "Weeslem Lima, bateria", name: "Weeslem Lima", role: "Bateria" },
 ];
 
+/** Fotos da seção Galeria (public/gallery). Manter proporção 4:3 nas novas imagens para padrão visual. */
+export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
+  { src: "/gallery/Galeria1.png", alt: "Tanatron — galeria 1" },
+  { src: "/gallery/Galeria2.png", alt: "Tanatron — galeria 2" },
+  { src: "/gallery/Galeria3.png", alt: "Tanatron — galeria 3" },
+  { src: "/gallery/Galeria4.png", alt: "Tanatron — galeria 4" },
+];
+
 export const LINKS = {
   spotify: "https://open.spotify.com/intl-pt/artist/5CfR70hsays5gPWFBg6qKx",
   youtube: "https://www.youtube.com/user/TanatronOfficial",

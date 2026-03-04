@@ -16,6 +16,7 @@ const navItems = [
   { label: "BIOGRAFIA", href: "#sobre" },
   { label: "DISCOGRAFIA", href: "#discografia" },
   { label: "MEMBROS", href: "#membros" },
+  { label: "GALERIA", href: "#galeria" },
   { label: "VÍDEOS", href: "#videos" },
   { label: "CONTATO", href: "#redes" },
 ];
