@@ -25,7 +25,7 @@ export function GallerySection() {
       viewport={{ once: true, margin: "-60px" }}
       variants={containerVariants}
     >
-      <div className="mx-auto min-w-0 max-w-6xl lg:max-w-7xl">
+      <div className="mx-auto min-w-0 max-w-6xl lg:max-w-5xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:mb-4 md:text-4xl"
           variants={itemVariants}
@@ -37,7 +37,7 @@ export function GallerySection() {
           variants={itemVariants}
           aria-hidden
         />
-        <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8">
+        <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:gap-5 lg:mx-auto lg:max-w-[640px] lg:gap-4 xl:gap-5">
           {MEMBROS_IMAGES.map(({ src, alt, name, role, objectPosition }, index) => (
             <motion.div
               key={index}

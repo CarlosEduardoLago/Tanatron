@@ -58,7 +58,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-w-0 w-full max-w-full flex-col items-center justify-center overflow-x-clip px-0 text-center lg:mx-auto lg:max-w-[1440px]"
+      className="relative flex min-w-0 w-full max-w-full flex-col items-center justify-center overflow-x-clip px-0 text-center lg:mx-auto lg:max-h-[70vh] lg:max-w-[1200px]"
       style={{ aspectRatio: HERO_IMAGE_ASPECT_RATIO }}
     >
       <div className="absolute inset-0 bg-page" aria-hidden />
@@ -92,7 +92,7 @@ export function HeroSection() {
               fill
               className="object-cover object-center opacity-95"
               style={{ objectPosition: "center center" }}
-              sizes="(max-width: 767px) 100vw, (min-width: 768px) 1440px"
+              sizes="(max-width: 767px) 100vw, (min-width: 768px) 1200px"
               priority
             />
           </motion.div>
