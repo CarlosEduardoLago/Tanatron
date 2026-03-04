@@ -18,11 +18,18 @@ export const ABOUT_IMAGE = "/ABOUT_IMAGE2.jpg";
 /** URL da imagem de capa do Hero (about.me/tanatron ou caminho ex: "/hero-band2.jpg") */
 export const HERO_IMAGE = "/hero-band2.jpg";
 
-export const GALLERY_IMAGES: { src: string; alt: string; objectPosition?: string }[] = [
-  { src: "/gallery/gallery-1.jpg", alt: "Tanatron ao vivo", objectPosition: "center top" },
-  { src: "/gallery/gallery-2.jpg", alt: "Show Tanatron", objectPosition: "center top" },
-  { src: "/gallery/gallery-3.jpg", alt: "Banda em palco" },
-  { src: "/gallery/gallery-4.jpg", alt: "Apresentação" },
+/** Imagens e dados da seção Membros (public/membros), ordem: membro1, 2, 3, 4 */
+export const MEMBROS_IMAGES: {
+  src: string;
+  alt: string;
+  name: string;
+  role: string;
+  objectPosition?: string;
+}[] = [
+  { src: "/membros/membro1.png", alt: "Nyelson Weber, baixo e vocal", name: "Nyelson Weber", role: "Baixo e Vocal" },
+  { src: "/membros/membro2.png", alt: "Nynrod Weber, guitarra", name: "Nynrod Weber", role: "Guitarra" },
+  { src: "/membros/membro3.png", alt: "Daniel Azevedo, guitarra", name: "Daniel Azevedo", role: "Guitarra" },
+  { src: "/membros/membro4.png", alt: "Weeslem Lima, bateria", name: "Weeslem Lima", role: "Bateria" },
 ];
 
 export const LINKS = {
