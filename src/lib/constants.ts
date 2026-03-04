@@ -43,6 +43,13 @@ export const GALLERY_PHOTOS: { src: string; alt: string; objectPosition?: string
   { src: "/galeria/galeria_4.jpg", alt: "Tanatron — galeria 4", objectPosition: "center center" },
 ];
 
+/** Imagens da seção Merch (public/merch). aspectRatio opcional: proporção largura/altura (ex. 4/3, 1). Se omitido, usa 4/3. */
+export const MERCH_IMAGES: { src: string; alt: string; aspectRatio?: number }[] = [
+  { src: "/merch/merch1.jpeg", alt: "Tanatron — produtos oficiais 1", aspectRatio: 4 / 3 },
+  { src: "/merch/merch2.jpeg", alt: "Tanatron — produtos oficiais 2", aspectRatio: 4 / 3 },
+  { src: "/merch/merch3.jpeg", alt: "Tanatron — produtos oficiais 3", aspectRatio: 4 / 3 },
+];
+
 export const LINKS = {
   spotify: "https://open.spotify.com/intl-pt/artist/5CfR70hsays5gPWFBg6qKx",
   youtube: "https://www.youtube.com/user/TanatronOfficial",

@@ -1,10 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { LINKS } from "@/lib/constants";
+import Image from "next/image";
+import { MERCH_IMAGES } from "@/lib/constants";
 import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
 import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
+
+const getImageSrc = (src: string) =>
+  process.env.NEXT_PUBLIC_BASE_PATH && src.startsWith("/")
+    ? process.env.NEXT_PUBLIC_BASE_PATH + src
+    : src;
 
 export function MerchSection() {
   const reduced = useReducedMotionContext();
@@ -20,7 +25,7 @@ export function MerchSection() {
       viewport={{ once: true, margin: "-80px" }}
       variants={containerVariants}
     >
-      <div className="mx-auto min-w-0 max-w-3xl lg:max-w-4xl">
+      <div className="mx-auto min-w-0 max-w-6xl lg:max-w-5xl">
         <motion.h2
           className="mb-2 font-logo text-2xl tracking-widest text-white sm:mb-3 sm:text-3xl md:text-4xl"
           variants={itemVariants}
@@ -36,27 +41,45 @@ export function MerchSection() {
           className="mb-8 text-zinc-400"
           variants={itemVariants}
         >
-          Confira nossos produtos e links oficiais.
+          Confira nossos produtos oficiais na Mad Rock Store.
         </motion.p>
-        <motion.div variants={itemVariants}>
-          <motion.div whileHover={cardHover} whileTap={cardTap} transition={springSoft}>
-          <Button
-            asChild
-            variant="secondary"
-            size="lg"
-            className="min-h-[48px] w-full transition-all sm:w-auto"
-          >
-          <a
-            href={LINKS.aboutMe}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Ver mais em about.me"
-          >
-            Ver mais em about.me
-            </a>
-          </Button>
-          </motion.div>
-        </motion.div>
+        <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:gap-5 lg:mx-auto lg:max-w-[640px] lg:gap-4 xl:gap-5">
+          {MERCH_IMAGES.map(({ src, alt, aspectRatio }, index) => (
+            <motion.div
+              key={index}
+              className="group"
+              variants={itemVariants}
+            >
+              <div
+                className="relative overflow-hidden rounded-lg border-2 border-page-border bg-page-surface transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
+                style={{ aspectRatio: aspectRatio ?? 4 / 3 }}
+              >
+                <motion.div
+                  className="relative h-full w-full"
+                  whileHover={cardHover}
+                  whileTap={cardTap}
+                  transition={springSoft}
+                >
+                  <Image
+                    src={getImageSrc(src)}
+                    alt={alt}
+                    fill
+                    loading="lazy"
+                    fetchPriority="low"
+                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                    style={{ objectPosition: "center center" }}
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
+                    decoding="async"
+                  />
+                  <div
+                    className="absolute inset-0 rounded-lg opacity-0 ring-2 ring-amber-500/30 ring-offset-2 ring-offset-page transition-opacity group-hover:opacity-100"
+                    aria-hidden
+                  />
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.section>
   );
