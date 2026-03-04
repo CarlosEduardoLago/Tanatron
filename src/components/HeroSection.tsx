@@ -58,7 +58,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-w-0 w-full max-w-full flex-col items-center justify-center overflow-x-clip px-0 text-center lg:mx-auto lg:max-h-[70vh] lg:max-w-[1200px]"
+      className="relative flex min-w-0 w-full max-w-full flex-col items-center justify-center overflow-x-clip px-0 text-center lg:mx-auto lg:max-h-[60vh] lg:max-w-[960px] lg:min-h-[50vh] lg:aspect-auto"
       style={{ aspectRatio: HERO_IMAGE_ASPECT_RATIO }}
     >
       <div className="absolute inset-0 bg-page" aria-hidden />
@@ -73,29 +73,34 @@ export function HeroSection() {
             ease: easeOutExpo,
           }}
         >
-          <motion.div
-            className="absolute inset-0 rounded-sm pointer-events-none"
-            style={{
-              border: AMBER_BORDER,
-              boxShadow: AMBER_GLOW,
-              ...borderStyle,
-            }}
-            aria-hidden
-          />
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-sm"
-            style={imageStyle}
+          <div
+            className="absolute inset-0 lg:relative lg:block lg:flex-shrink-0 lg:w-full lg:max-w-[960px] lg:max-h-[60vh]"
+            style={{ aspectRatio: HERO_IMAGE_ASPECT_RATIO }}
           >
-            <Image
-              src={heroImageSrc}
-              alt={`${BAND_NAME} — ${TAGLINE}`}
-              fill
-              className="object-cover object-center opacity-95"
-              style={{ objectPosition: "center center" }}
-              sizes="(max-width: 767px) 100vw, (min-width: 768px) 1200px"
-              priority
+            <motion.div
+              className="absolute inset-0 rounded-sm pointer-events-none"
+              style={{
+                border: AMBER_BORDER,
+                boxShadow: AMBER_GLOW,
+                ...borderStyle,
+              }}
+              aria-hidden
             />
-          </motion.div>
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-sm"
+              style={imageStyle}
+            >
+              <Image
+                src={heroImageSrc}
+                alt={`${BAND_NAME} — ${TAGLINE}`}
+                fill
+                className="object-cover object-center opacity-95 lg:object-contain"
+                style={{ objectPosition: "center center" }}
+                sizes="(max-width: 767px) 100vw, (min-width: 768px) 960px"
+                priority
+              />
+            </motion.div>
+          </div>
         </motion.div>
       ) : null}
       <motion.div
