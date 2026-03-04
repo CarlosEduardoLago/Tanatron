@@ -94,10 +94,6 @@ export function PhotoGallerySection() {
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                   decoding="async"
                 />
-                <div
-                  className="absolute inset-0 rounded-lg opacity-0 ring-2 ring-amber-500/30 ring-offset-2 ring-offset-page transition-opacity group-hover:opacity-100"
-                  aria-hidden
-                />
               </motion.button>
             ))}
           </div>
