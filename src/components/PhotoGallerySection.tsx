@@ -72,9 +72,9 @@ export function PhotoGallerySection() {
             aria-hidden
           />
           <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 md:gap-5 lg:gap-6 xl:gap-8">
-            {GALLERY_PHOTOS.map(({ src, alt }, index) => (
+            {GALLERY_PHOTOS.map(({ src, alt, objectPosition }, index) => (
               <motion.button
-                key={index}
+                key={src}
                 type="button"
                 className="group relative aspect-[4/3] min-w-0 overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-page"
                 variants={itemVariants}
@@ -91,6 +91,7 @@ export function PhotoGallerySection() {
                   loading="lazy"
                   fetchPriority="low"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  style={objectPosition ? { objectPosition } : undefined}
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                   decoding="async"
                 />
