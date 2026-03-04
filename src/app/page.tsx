@@ -12,7 +12,11 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full min-w-0 max-w-full overflow-x-clip bg-page pt-14 sm:pt-16">
+    <main
+      className="min-h-screen w-full min-w-0 max-w-full overflow-x-clip bg-page pt-14 sm:pt-16"
+      role="main"
+      aria-label="Conteúdo principal"
+    >
       <Header />
       <HeroSection />
       <AboutSection />

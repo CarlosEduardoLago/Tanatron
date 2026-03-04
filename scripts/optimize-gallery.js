@@ -22,14 +22,16 @@ async function optimizeImages() {
   }
 
   if (!fs.existsSync(GALLERY_DIR)) {
-    console.log("Pasta public/galeria não encontrada.");
+    console.log("Pasta public/galeria não encontrada. Pulando otimização.");
+    process.exit(0);
     return;
   }
 
   const files = fs.readdirSync(GALLERY_DIR).filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f));
 
   if (files.length === 0) {
-    console.log("Nenhuma imagem encontrada em public/galeria");
+    console.log("Nenhuma imagem encontrada em public/galeria. Pulando otimização.");
+    process.exit(0);
     return;
   }
 
