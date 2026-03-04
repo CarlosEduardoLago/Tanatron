@@ -53,7 +53,7 @@ export function PhotoGallerySection() {
     <>
       <motion.section
         id="galeria"
-        className="overflow-x-clip bg-page px-4 py-12 md:py-24 lg:px-12 xl:px-16"
+        className="overflow-x-clip bg-page px-4 py-12 md:py-24 lg:px-12 xl:px-16 [filter:none]"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-60px" }}
@@ -76,7 +76,7 @@ export function PhotoGallerySection() {
               <motion.button
                 key={src}
                 type="button"
-                className="group relative aspect-[4/3] min-w-0 overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-page"
+                className="group relative aspect-[4/3] min-w-0 overflow-hidden rounded-lg border border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-page [filter:none]"
                 variants={itemVariants}
                 whileHover={cardHover}
                 whileTap={cardTap}
@@ -91,7 +91,7 @@ export function PhotoGallerySection() {
                   loading="lazy"
                   fetchPriority="low"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  style={objectPosition ? { objectPosition } : undefined}
+                  style={{ filter: "none", ...(objectPosition ? { objectPosition } : {}) }}
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                   decoding="async"
                 />
@@ -126,7 +126,7 @@ export function PhotoGallerySection() {
               onClick={closeLightbox}
             >
               <div
-                className="relative flex max-h-full max-w-full items-center justify-center"
+                className="relative flex max-h-full max-w-full items-center justify-center [filter:none]"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Image
@@ -135,6 +135,7 @@ export function PhotoGallerySection() {
                   width={1200}
                   height={900}
                   className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain"
+                  style={{ filter: "none" }}
                   sizes="(max-width: 1024px) 90vw, 1200px"
                 />
               </div>

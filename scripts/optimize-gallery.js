@@ -1,6 +1,7 @@
 /**
  * Otimiza imagens da galeria para reduzir tamanho e melhorar performance.
  * Redimensiona para max 800px de largura e comprime com qualidade 80.
+ * NÃO usar .grayscale() nem conversão para P&B — manter cores originais.
  * Executa antes do build: npm run optimize-images
  */
 
