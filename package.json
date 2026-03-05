@@ -7,6 +7,7 @@
     "open": "start http://localhost:3000",
     "optimize-images": "node scripts/optimize-gallery.js",
     "merch-4x3": "node scripts/merch-4x3.js",
+    "hero-16x9": "node scripts/hero-16x9.js",
     "prebuild": "npm run optimize-images",
     "build": "next build",
     "start": "next start",

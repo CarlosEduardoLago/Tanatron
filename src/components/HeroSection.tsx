@@ -94,7 +94,7 @@ export function HeroSection() {
                 src={heroImageSrc}
                 alt={`${BAND_NAME} — ${TAGLINE}`}
                 fill
-                className="object-cover object-center opacity-95 lg:object-contain"
+                className="object-cover object-center opacity-95 lg:object-cover"
                 style={{ objectPosition: "center center" }}
                 sizes="(max-width: 767px) 100vw, (min-width: 768px) 960px"
                 priority
