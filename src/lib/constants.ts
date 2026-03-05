@@ -54,6 +54,7 @@ export const LINKS = {
   spotify: "https://open.spotify.com/intl-pt/artist/5CfR70hsays5gPWFBg6qKx",
   youtube: "https://www.youtube.com/user/TanatronOfficial",
   instagram: "https://instagram.com/tanatronband",
+  madRockStore: "https://www.instagram.com/madrockstore/",
   aboutMe: "https://about.me/tanatron",
   facebook: "https://facebook.com/tanatronband",
   twitter: "https://twitter.com/tanatronband",
