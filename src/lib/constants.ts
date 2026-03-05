@@ -88,7 +88,7 @@ export const AGENDA: { date: string; location: string; link?: string | null }[] 
 ];
 
 export const VIDEOS = [
-  { id: "ZLtVzVXLekc", title: "Tanatron — Vídeo" },
+  { id: "U9JuFoLDGqU", title: "Tanatron — Vídeo" },
   { id: "KD6hW6JtkwI", title: "Tanatron — Vídeo" },
 ] as const;
 
