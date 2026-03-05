@@ -51,7 +51,7 @@ export function MerchSection() {
               variants={itemVariants}
             >
               <div
-                className="relative overflow-hidden rounded-lg border-2 border-page-border bg-page-surface transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
+                className="relative overflow-hidden rounded-lg border-2 border-page-border transition-colors hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-500/10"
                 style={{ aspectRatio: aspectRatio ?? 4 / 3 }}
               >
                 <motion.div
@@ -66,7 +66,7 @@ export function MerchSection() {
                     fill
                     loading="lazy"
                     fetchPriority="low"
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                     style={{ objectPosition: "center center" }}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
                     decoding="async"
