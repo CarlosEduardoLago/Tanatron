@@ -15,8 +15,8 @@ export const BAND_MEMBERS: { name: string; role: string }[] = [
 
 export const ABOUT_IMAGE = "/ABOUT_IMAGE2.jpg";
 
-/** Imagem de capa do Hero (public/hero.jpeg) */
-export const HERO_IMAGE = "/hero.jpeg";
+/** Imagem de capa do Hero (public/hero.png) */
+export const HERO_IMAGE = "/hero.png";
 
 /** Proporção largura/altura da imagem hero (ex.: 16/9). Ajuste conforme hero.jpeg para evitar faixas pretas. */
 export const HERO_IMAGE_ASPECT_RATIO = 16 / 9;
