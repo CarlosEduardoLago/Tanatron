@@ -4,7 +4,6 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { MERCH_IMAGES, LINKS } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
 import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
 import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
 
@@ -78,30 +77,19 @@ export function MerchSection() {
             Confira nossos produtos oficiais na Mad Rock Store.
           </motion.p>
           <motion.div className="mb-8" variants={itemVariants}>
-            <motion.div
+            <motion.a
+              href={LINKS.madRockStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Instagram da Mad Rock Store"
+              className="inline-flex items-center gap-2 rounded-lg border border-violet-500/50 bg-violet-500/10 px-5 py-2.5 text-sm font-medium text-violet-400 transition hover:border-violet-500 hover:bg-violet-500/20 hover:text-violet-300"
               whileHover={reduced ? undefined : cardHover}
               whileTap={reduced ? undefined : cardTap}
               transition={springSoft}
-              className="inline-block"
             >
-              <Button
-                asChild
-                variant="secondary"
-                size="lg"
-                className="min-h-[48px] w-full transition-all sm:w-auto"
-              >
-                <a
-                  href={LINKS.madRockStore}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Abrir Instagram da Mad Rock Store"
-                  className="inline-flex items-center justify-center gap-2 text-zinc-300 hover:text-violet-400 border-violet-500/30 hover:border-violet-500/60 hover:bg-violet-500/10"
-                >
-                  <InstagramIcon className="h-5 w-5 shrink-0" />
-                  Mad Rock Store no Instagram
-                </a>
-              </Button>
-            </motion.div>
+              <InstagramIcon className="h-5 w-5" />
+              Mad Rock Store no Instagram
+            </motion.a>
           </motion.div>
           <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-4 md:gap-5 lg:mx-auto lg:max-w-[640px] lg:gap-4 xl:gap-5">
             {MERCH_IMAGES.map(({ src, alt, aspectRatio }, index) => (
