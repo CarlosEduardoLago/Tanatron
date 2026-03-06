@@ -75,7 +75,7 @@ export function NovidadesSection() {
             fallbackLinkText="Ver no Instagram"
           >
             <motion.div
-              className="min-w-0 overflow-hidden rounded-2xl border border-zinc-800/40 bg-black shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition hover:border-zinc-700/50 hover:shadow-[0_6px_24px_rgba(0,0,0,0.45)]"
+              className="novidades-iframe-wrapper mx-auto min-w-0 max-w-full overflow-hidden rounded-2xl border border-zinc-800/40 bg-black shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition hover:border-zinc-700/50 hover:shadow-[0_6px_24px_rgba(0,0,0,0.45)] lg:max-w-5xl"
               variants={itemVariants}
             >
               <iframe
@@ -84,7 +84,7 @@ export function NovidadesSection() {
                 width="100%"
                 height={400}
                 style={{ border: 0 }}
-                className="block min-w-0 max-w-full"
+                className="block min-w-0 max-w-full h-[400px] lg:h-[800px]"
                 loading="lazy"
               />
             </motion.div>
