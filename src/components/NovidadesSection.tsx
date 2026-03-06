@@ -78,9 +78,10 @@ export function NovidadesSection() {
               className="novidades-iframe-wrapper mx-auto min-w-0 max-w-full overflow-hidden rounded-2xl border border-zinc-800/40 bg-black shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition hover:border-zinc-700/50 hover:shadow-[0_6px_24px_rgba(0,0,0,0.45)] lg:max-w-5xl"
               variants={itemVariants}
             >
+              {/* 3 posts mais recentes: parâmetro limit=3 na URL; se o widget ignorar, configurar "Number of posts" = 3 no painel SociableKit */}
               <iframe
-                src="https://widgets.sociablekit.com/instagram-feed/iframe/25659720"
-                title="Feed do Instagram Tanatron"
+                src="https://widgets.sociablekit.com/instagram-feed/iframe/25659720?limit=3"
+                title="Feed do Instagram Tanatron (3 posts mais recentes)"
                 width="100%"
                 height={400}
                 style={{ border: 0 }}
