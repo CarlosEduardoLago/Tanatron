@@ -1,11 +1,10 @@
 "use client";
 
-import Script from "next/script";
 import { motion } from "framer-motion";
-import { INSTAGRAM_POSTS, LINKS } from "@/lib/constants";
+import { LINKS } from "@/lib/constants";
 import { EmbedErrorBoundary } from "@/components/EmbedErrorBoundary";
 import { useReducedMotionContext } from "@/contexts/ReducedMotionContext";
-import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemFromLeft, sectionItemFromRight, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
+import { sectionContainer, sectionContainerReduced, sectionItem, sectionItemReduced, cardHover, cardTap, springSoft } from "@/lib/motion";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -21,16 +20,7 @@ export function NovidadesSection() {
   const itemVariants = reduced ? sectionItemReduced : sectionItem;
 
   return (
-    <>
-      <Script
-        src="https://www.instagram.com/embed.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          const instgrm = (window as { instgrm?: { Embeds?: { process: () => void } } }).instgrm;
-          instgrm?.Embeds?.process?.();
-        }}
-      />
-      <motion.section
+    <motion.section
         id="novidades"
         className="overflow-x-clip bg-page-mid/80 px-4 py-12 md:py-24 lg:px-12 xl:px-16"
         initial="hidden"
@@ -79,44 +69,26 @@ export function NovidadesSection() {
             </motion.a>
           </motion.div>
 
-          <div className="grid min-w-0 grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
-            {INSTAGRAM_POSTS.map((postUrl, index) => (
-              <motion.div
-                key={postUrl}
-                className="flex min-w-0 justify-center"
-                variants={reduced ? sectionItemReduced : (index % 2 === 0 ? sectionItemFromLeft : sectionItemFromRight)}
-                whileHover={cardHover}
-                whileTap={cardTap}
-                transition={springSoft}
-              >
-                <EmbedErrorBoundary
-                  fallbackTitle="Post do Instagram"
-                  fallbackHref={postUrl}
-                  fallbackLinkText="Ver no Instagram"
-                >
-                  <div className="instagram-embed-wrapper w-full max-w-[540px] overflow-hidden rounded-xl border border-page-border ring-2 ring-amber-500/20 shadow-lg shadow-black/50 transition-colors hover:border-amber-500/40 hover:shadow-amber-500/10">
-                    <blockquote
-                      className="instagram-media !m-0 !block min-w-0 max-w-full"
-                      data-instgrm-permalink={postUrl}
-                      data-instgrm-version="14"
-                      style={{
-                        background: "#FFF",
-                        border: 0,
-                        borderRadius: 12,
-                        margin: 0,
-                        maxWidth: 540,
-                        minWidth: 326,
-                        padding: 0,
-                        width: "99.375%",
-                      }}
-                    >
-                      <a href={postUrl}>Ver no Instagram</a>
-                    </blockquote>
-                  </div>
-                </EmbedErrorBoundary>
-              </motion.div>
-            ))}
-          </div>
+          <EmbedErrorBoundary
+            fallbackTitle="Feed do Instagram"
+            fallbackHref={LINKS.instagram}
+            fallbackLinkText="Ver no Instagram"
+          >
+            <motion.div
+              className="min-w-0 overflow-hidden rounded-2xl border border-zinc-800/40 bg-black shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition hover:border-zinc-700/50 hover:shadow-[0_6px_24px_rgba(0,0,0,0.45)]"
+              variants={itemVariants}
+            >
+              <iframe
+                src="https://widgets.sociablekit.com/instagram-feed/iframe/25659720"
+                title="Feed do Instagram Tanatron"
+                width="100%"
+                height={400}
+                style={{ border: 0 }}
+                className="block min-w-0 max-w-full"
+                loading="lazy"
+              />
+            </motion.div>
+          </EmbedErrorBoundary>
 
           <motion.p className="mt-8 text-center text-sm text-zinc-500" variants={itemVariants}>
             Acompanhe o dia a dia da banda em{" "}
@@ -130,7 +102,6 @@ export function NovidadesSection() {
             </a>
           </motion.p>
         </div>
-      </motion.section>
-    </>
+    </motion.section>
   );
 }
