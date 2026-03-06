@@ -84,7 +84,7 @@ export function NovidadesSection() {
                 width="100%"
                 height={400}
                 style={{ border: 0 }}
-                className="block min-w-0 max-w-full h-[400px] lg:h-[800px]"
+                className="block min-w-0 max-w-full h-[400px] lg:h-[440px]"
                 loading="lazy"
               />
             </motion.div>

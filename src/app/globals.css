@@ -100,9 +100,9 @@
 /* Desktop: iframe do feed Instagram com tamanho proporcional ao conteúdo (painéis/postagens) sem cortar */
 @media (min-width: 1024px) {
   .novidades-iframe-wrapper {
-    min-height: 800px;
+    min-height: 440px;
   }
   .novidades-iframe-wrapper iframe {
-    min-height: 800px;
+    min-height: 440px;
   }
 }
